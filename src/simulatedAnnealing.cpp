@@ -37,6 +37,13 @@ namespace
     keyboardInterruptReceived = 1;
   }
 
+  
+  /* Typical argument settings:
+   * Initial Temperature: 10000
+   * Cooling Factor: .99
+   * Iterations per temperature: 10000
+   */
+  
   void printUsage(std::ostream &out, const char *programName)
   {
     out << "Usage: " << programName << " OPTION...\n"
