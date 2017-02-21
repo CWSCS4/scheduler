@@ -29,6 +29,25 @@ public final class GenerateSpecification
   public static void main(String[] args) throws Exception
   {
 
+    /* Arguments we typically use:
+     * dbHost = 127.0.0.1
+     * dbName = scheduler
+     * dbUser = scheduler
+     * dbPassword = ""
+     * dbTimeZone = EST
+     * slotDuration = 600
+     * conferenceValueWeight = 10
+     * waitWeight = 0.0000001
+     * unsatisfiedPreferenceWeight = 0.3
+     * travelWeight = 0.01
+     * consecutiveWeight = 1000
+     * maximumConsecutiveForTeachers = 8
+     * totalStudentPriority = 100
+     * teacherPriorityFactor = 10
+     * secondConferenceWeight = 0.1
+     * floorUpFactor = 0
+     * floorDownFactor = 0
+     */
     if (args.length != 17)
     {
       System.err.println
