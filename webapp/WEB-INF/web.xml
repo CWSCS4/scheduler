@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-
-<!DOCTYPE web-app
-    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-    "http://java.sun.com/dtd/web-app_2_3.dtd">
-
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
+	<display-name>Scheduler</display-name>
+	<description>Parent-teacher conference scheduler.</description>
+	<filter>
+		<filter-name>AdminRequired</filter-name>
+		<filter-class>org.commschool.scheduler.jsp.AdminRequiredFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>FrontOfficeRequired</filter-name>
+		<filter-class>org.commschool.scheduler.jsp.FrontOfficeRequiredFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>StudentRequired</filter-name>
+		<filter-class>org.commschool.scheduler.jsp.StudentRequiredFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>TeacherRequired</filter-name>
+		<filter-class>org.commschool.scheduler.jsp.TeacherRequiredFilter</filter-class>
+	</filter>
 
-    <display-name>Scheduler</display-name>
-    <description>
-      Parent-teacher conference scheduler.
-    </description>
-
+	<filter-mapping>
+		<filter-name>AdminRequired</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FrontOfficeRequired</filter-name>
+		<url-pattern>/frontoffice/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>StudentRequired</filter-name>
+		<url-pattern>/parent/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>TeacherRequired</filter-name>
+		<url-pattern>/teacher/*</url-pattern>
+	</filter-mapping>
 </web-app>

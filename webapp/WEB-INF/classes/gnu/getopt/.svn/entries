@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="192"
+   name=""
+   committed-date="2004-08-26T20:43:27.663538Z"
+   url="svn+ssh://hiro/home/reillyeon/svnrepos/trunk/proging/scheduler/WEB-INF/classes/gnu/getopt"
+   last-author="reillyeon"
+   kind="dir"
+   uuid="2a27f819-cfde-0310-8ade-be431724ba05"
+   revision="288"/>
+<entry
+   committed-rev="192"
+   name="MessagesBundle_cs.properties"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-08-26T20:43:27.663538Z"
+   checksum="71b668a04c888b827c8ea77284547cc6"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="192"
+   name="LongOpt.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-08-26T20:43:27.663538Z"
+   checksum="fb26bcaa8456dee529b07f0012d53fb3"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="192"
+   name="Getopt.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-08-26T20:43:27.663538Z"
+   checksum="4540cc730b1d1c2193a490e87ace5741"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="192"
+   name="MessagesBundle_de.properties"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-08-26T20:43:27.663538Z"
+   checksum="331133dd8c1e29e5ebff5f815396035f"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="192"
+   name="Getopt.class"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-08-26T20:43:27.663538Z"
+   checksum="35247e5d576a92d4162dd3c5315f95fd"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="192"
+   name="LongOpt.class"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-08-26T20:43:27.663538Z"
+   checksum="46ff8fa48efeb3312c101397cc55263f"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="192"
+   name="MessagesBundle_no.properties"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-08-26T20:43:27.663538Z"
+   checksum="4108108b3b57075d8fcc817b3c908a2b"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="192"
+   name="MessagesBundle.properties"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-08-26T20:43:27.663538Z"
+   checksum="0a3c73f36e633025c36a06d08510f701"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+</wc-entries>

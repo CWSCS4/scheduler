@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="286"
+   name=""
+   committed-date="2005-01-26T01:47:34.106645Z"
+   url="svn+ssh://hiro/home/reillyeon/svnrepos/trunk/proging/scheduler/WEB-INF"
+   last-author="reillyeon"
+   kind="dir"
+   uuid="2a27f819-cfde-0310-8ade-be431724ba05"
+   revision="288"/>
+<entry
+   name="lib"
+   kind="dir"/>
+<entry
+   committed-rev="181"
+   name="web.xml"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="4dfa6e143aba9b8a4682571afff82aab"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   name="classes"
+   kind="dir"/>
+</wc-entries>

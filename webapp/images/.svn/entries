@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="181"
+   name=""
+   committed-date="2004-07-27T01:17:35.900062Z"
+   url="svn+ssh://reilly.dnsalias.net/home/reillyeon/svnrepos/trunk/proging/scheduler/images"
+   last-author="reillyeon"
+   kind="dir"
+   revision="236"/>
+<entry
+   committed-rev="181"
+   name="flower_tech_1.jpg"
+   text-time="2004-07-22T22:53:28.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="5bc1ea63f878752cb5384b4f0448b7c4"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2004-07-22T22:56:49.000000Z"/>
+<entry
+   committed-rev="181"
+   name="flower_tech_2.jpg"
+   text-time="2004-07-22T22:53:28.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="407681226aa15b8197a70e747ff10837"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2004-07-22T22:56:49.000000Z"/>
+<entry
+   committed-rev="181"
+   name="flower_tech_3.jpg"
+   text-time="2004-07-22T22:53:28.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="df3167b0854870ba8af8e1c828646bc9"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2004-07-22T22:56:49.000000Z"/>
+</wc-entries>

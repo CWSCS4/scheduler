@@ -43,7 +43,7 @@ try {
     hashPassword.setString( 1, request.getParameter( "passwd" ) );
     ResultSet hashedPasswd = hashPassword.executeQuery();
     hashedPasswd.first();
-//    if ( adminPasswd.equals( hashedPasswd.getString( 1 ) ) ) {
+    if ( adminPasswd.equals( hashedPasswd.getString( 1 ) ) ) {
         session.setAttribute( "db", connect );
 	session.setAttribute( "admin", Boolean.TRUE );
 %>
@@ -59,10 +59,10 @@ try {
 </ul>
 
 <%
-//    } else {
-//        %><p>Sorry, you entered an invalid password.
-//        <br><a href="admin.jsp">Return</a> to the login page.<%
-//    }
+    } else {
+        %><p>Sorry, you entered an invalid password.
+        <br><a href="admin.jsp">Return</a> to the login page.<%
+    }
 } catch ( SQLException e ) {
     %><p>Internal Error<%
 }

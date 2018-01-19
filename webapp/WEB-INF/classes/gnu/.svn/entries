@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="192"
+   name=""
+   committed-date="2004-08-26T20:43:27.663538Z"
+   url="svn+ssh://hiro/home/reillyeon/svnrepos/trunk/proging/scheduler/WEB-INF/classes/gnu"
+   last-author="reillyeon"
+   kind="dir"
+   uuid="2a27f819-cfde-0310-8ade-be431724ba05"
+   revision="288"/>
+<entry
+   name="getopt"
+   kind="dir"/>
+</wc-entries>

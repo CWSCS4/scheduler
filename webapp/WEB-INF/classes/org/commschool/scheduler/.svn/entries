@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="286"
+   name=""
+   committed-date="2005-01-26T01:47:34.106645Z"
+   url="svn+ssh://hiro/home/reillyeon/svnrepos/trunk/proging/scheduler/WEB-INF/classes/org/commschool/scheduler"
+   last-author="reillyeon"
+   kind="dir"
+   uuid="2a27f819-cfde-0310-8ade-be431724ba05"
+   revision="288"/>
+<entry
+   committed-rev="286"
+   name="DuplicateStudent.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2005-01-26T01:47:34.106645Z"
+   checksum="b1bc8235692fa33c14b79788a115da6e"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   name="db"
+   kind="dir"/>
+<entry
+   committed-rev="286"
+   name="LoadData.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2005-01-26T01:47:34.106645Z"
+   checksum="ebafa8f9cd17d88ba8ef00537c601092"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="221"
+   name="Sendmail.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-10-12T01:18:54.471408Z"
+   checksum="320b193245edb9b7ec9186d3166e511e"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+</wc-entries>

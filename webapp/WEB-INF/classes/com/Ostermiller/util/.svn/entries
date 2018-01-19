@@ -1,0 +1,1723 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="193"
+   name=""
+   committed-date="2004-08-26T20:48:41.762188Z"
+   url="svn+ssh://hiro/home/reillyeon/svnrepos/trunk/proging/scheduler/WEB-INF/classes/com/Ostermiller/util"
+   last-author="reillyeon"
+   kind="dir"
+   uuid="2a27f819-cfde-0310-8ade-be431724ba05"
+   revision="288"/>
+<entry
+   committed-rev="188"
+   name="UberProperties.bte"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="2e220439c6de556bcd777c8d4b5297cd"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="COPYING.TXT"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="0636e73ff0215e8d672dc4c32c317bb3"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularByteBuffer.class"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="c2cd05792d81f467584ed6013b61f994"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="RandPass.java"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="0caea08e09bf8da3f730f663ffbd95ff"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PasswordDialog.bte"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="553e1782162129ad45fb9599f627cef2"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="build.xml"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="67bb771d525cb35698c85fe4162443e5"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="FileHelper.java"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="fc72acaab29a776dd0b3e57f345ffdd3"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PasswordDialog_en.properties"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="9e268d10ef6791f78ceb7a9b763609bf"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Browser_en.properties"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="d5366fff12111de5b0c438a18201f208"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="UberPropertiesTests.class"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="f196ec5670227af0c61502b8ddf1030c"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="PropertiesToken.class"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="1e83695d0cfb5d70acfd67e2a05cd9de"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="PasswordVerifier.class"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="90c25571e83b47eac4b5943768a3f229"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="BadQuoteException.java"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="cd426151e3994ed61a24e5ca23cbdbb9"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PasswordDialog_fr.properties"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="4a0ac8b29c8f4a7b8d6c9c2c0fdb887d"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Browser_fr.properties"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="3d3e825f1ea78a12d2fa8e55ba9b50c8"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="RandPass.properties"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="18538d322e909a41c9d231c449b8693c"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="FileHelper.properties"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="8e9a39dd5dda6b2c492d2afc8f0249e3"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="LineEnds.bte"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="829caefabf3bca91ade05de196ab6966"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="PasswordDialog$1.class"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="b02a863ebda3552176e619ccf75f8bb9"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularBufferTests$CBBConsumer.class"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="74213bd1981403d352788720cc9e4162"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="Browser$2.class"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="cd1c3bee43a6f0b6df3714bab945d415"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="TokenizerTests.java"
+   text-time="2005-02-01T18:54:13.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="d719b1cd09c87618679f9dff4122ce4d"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PasswordVerifier.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="4f8947f2145d51556598402b77b0a95c"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="Browser$BrowserDialog.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="8d97ff5d470025c26fe8fd8cc0f8d40e"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="index.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="bd929a0bae9860fd7afec3734b10ca58"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Base64DecodingException.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="07c495db6d116a838bf759d3f57ca361"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="FileHelper.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="45795b5f0560830b99d28ae15b13fb45"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PasswordDialog_de.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="fcdaba071be86c0e8171b97d55cb1cc7"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="MD5OutputStream.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="654282ccbd5dbb40103a0ffdd312687c"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Browser_de.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="a3d25bfea1fb2446a365ab0a8cf87b87"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="UberProperties$Property.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="1e9aa90e0ceb89c699ce84047a04f03b"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="FileHelper.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="97f2c2d306fe05f01b31a63ba42a9bfc"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="Base64.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="040fce2a56edf34cac3582677a91b4c7"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="NoCloseReader.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="fc37b048a056cd8ab50baff40fd8deaf"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularByteBuffer$CircularByteBufferOutputStream.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="a4673f676679a4d29719e457738a26c2"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="ExcelCSVParser.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="5c81a7776dca96ba80e2554c570721a9"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="MD5.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="ccc92d4fb74a0989e14f0ecf45115b87"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Tabs.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="fb47f48c944b247f35589de6bb398dec"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Browser.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="527339a3375e43c13e70728d96f9e3a3"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularBufferTests$CCBProducer.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="9cbd84b0b4e88b97553b85b3b801e226"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="StringHelper.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="d2ca7fb341b883b05b7a08bc28c62f3f"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="UberPropertiesTests.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="932b26d285935ad5072cce6e560a6b27"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PropertiesToken.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="a17eb62dcc1168677a098a4da7c45351"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Browser.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="066a83b470d6ad3008e31c9fa979e458"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Base64.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="d534abcfa5e0fc0a3dfa6c8c707686c6"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="ExcelCSVLexer.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="e44d4ca868029977c3c0557e5d9048b2"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="BadDelimeterException.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="9bbaa67dc2ef396a7ede0985913bb1c8"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="188"
+   name="LineEnds.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="d60d39f57db11bacaa9d6de03094469e"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:10.000000Z"/>
+<entry
+   committed-rev="193"
+   name="NoCloseStream.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="231f67a3976486a7e480dec208877217"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PropertiesLexer.lex"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="72cdbc6146666bc385b4a313363d8244"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularBufferTests.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="0c2c6fd98d87b778fe0db88736cf03a1"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="StringHelper.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="f2c592c15f73941f7614d2efaedd326d"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CSVParser.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="53811581231bc773578b337e03ff68f7"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="spell.sh"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="d1c89989a42f7af0a335af8095091eb2"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularByteBuffer$CircularByteBufferInputStream.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="a12e3bd55fa38986e23abb7ff5c81f77"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="release.sh"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="f7ce8f4c3c85d5603edb41851384c879"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="RandPassApplet.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="a03263038449d1861f084f22396283ad"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="UberProperties.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="3040231c4a5f69bfd62b896fb813c227"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CSVRegressionTestResults.txt"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="8c4392fd5a4d57787142d75b157c567b"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="NoCloseStream.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="cc7ae3aeafd8178a134da39ff5060420"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CGIParser.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="331ddf51967507f25d0946afac3edcfa"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="ExcelCSVPrinter.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="641072b424de34638b464f945a250b48"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PasswordDialog.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="11706d45a1be1763a7b9ab08bf6a39e7"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="SignificantFigures.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="e8cff1c7efffaf0cceeec1bd5123e14b"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="Base64DecodingException.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="8f1af95154bb18195f0f7cf616e3f214"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularBufferTests$CBBProducer.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="96c2b863edf9d55a47f09eb2f70aafa5"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="NoCloseReader.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="adfb20b1c11ef7600ee40766e4845e0f"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Browser_en_US.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="ee1ebe6f11f36a63bedb9ad88fb79b43"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PasswordDialog_it.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="6868642431f63c215575b635ac474736"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Tabs.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="655990fca19d509e5a587a70a666059e"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="StringTokenizer.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="de03523fff142c91407b2292a330d1d3"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Browser_it.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="c6b47ec0fb58b04542151421e78d9812"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="history.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="e872a439ab81e9e87e8be88c48a31bd5"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="TokenizerTestResults.txt"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="4dc4c0f4edb5bfbfc20fd1840b33aa6f"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularBufferTests$1.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="65e24cddfa34340e1c3bbc5e89f96818"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="Browser$1.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="8efefa88d77d661f4e8985384f000195"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="RandPassApplet$3.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="517eb8a0ec6286df46f7b238805011e4"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="spell"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="d41d8cd98f00b204e9800998ecf8427e"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="NoCloseWriter.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="596ee637fe0c8ce4b368114471cc146e"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CSVLexer.lex"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="215c19c506ce3f5bd74d1db3b8ad67f9"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CGIParser.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="e08c5155b094ddef3e8ccee3c2ce243e"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="ExcelCSV.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="46410359d051058cac5131abebbceec8"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="browser.jflex.skel"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="cf986738212f2a39db4fbaabf1cbf80d"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CGIParser.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="5d41002a22c9f4e75d766f702e3e9a8b"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="StraightStreamReader.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="7c79d386f0209d7a1d8ee724c267691f"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="util.dict"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="2e572a53b5fbb5e55d863ea39f247333"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CSVTest.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="e2cf18bdfeb3f271df23560a573a192f"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="properties.jflex.skel"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="159f624a44383d79011b489da5e9829c"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="RandPassApplet.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="cbbfbc971fea829541813c4bf740b262"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="MD5InputStream.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="fbf2eafc9c7c8a8142bb21e83e5c6a7d"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="NoCloseWriter.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="cf2ff757b14fc8ed8e8dc19805003975"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="BadDelimeterException.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="42ca4b3b117cf18661e6e09e8bc98c87"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Base64.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="524334bac2e92667737e0b6d1593057e"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="RandPass$Requirement.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="c4fb4e778d14f3ef22138285b23d49cd"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="BadDelimiterException.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="577f8ef534fede2818e87f0e8b933c8b"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CSVParser.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="91cecc0291d1a2bf1c0534184898f4c6"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="StringHelper.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="62a6703d3d0261ec9491e1a98478a094"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="188"
+   name="NoCloseOutputStream.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="9b39ea8fd3602b873ab2d4954f863ed1"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:11.000000Z"/>
+<entry
+   committed-rev="193"
+   name="BufferOverflowException.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="a12ea234b7347e41189691fc58de6d90"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="download.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="0308f23044b4fb4bf07c7cdde7f5cc3a"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="StringTokenizer.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="f9ea5ce4120f2283ce4e060b0a863813"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="licenseFAQ.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="e1587d6fa7e23d05b7bfc6e69cb14b75"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="ExcelCSVPrinter.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="9709aeefec0b0054e24305493bea0dc4"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CSVRegressionTest.csv"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="3c9897a4e959c1b3dd138f698744ad72"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="NoCloseStream.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="a121e33c4181b6e7b23f9cfec968e95f"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CSVPrint.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="4480adfd5ed9756a17820caee9baf884"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularBufferTests$COBConsumer.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="64d0eea2e9831b9f3678d0078c8bbaeb"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CSVTestResults.txt"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="1da4e5ae36c9582adcc0fb310bbfd1ea"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="csv.jflex.skel"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="aef506b3230b26f5d6290abdd525a011"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CircularByteBuffer.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="9a768afbbede5b219bb30f6bda89f874"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="NoCloseInputStream.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="9ab1c909efb29e4606b0c0a113e468ff"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="NoCloseOutputStream.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="e0b792d36afd8d70639f3a537d485d8b"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularCharBuffer$CircularCharBufferReader.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="283b2e1fbd7cebf718d1b6e491000015"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="LineEnds.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="f0d7ad6eeb2180e7119a85d6eaddca4e"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="cgi.jflex.skel"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="e323e76b88bbd8d8f8749a71d7bb622f"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="BrowserCommandLexer.lex"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="3c31ae51cece45cb9c8a4a2f210b5dd4"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="RandPassApplet$2.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="c8352696bcf2b5524ee5e6f146a4777b"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Makefile"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="79952dd07fdda11d1f24e89049181289"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="ExcelCSVRegressionTestResults.txt"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="1ccf91437d309d003e6ce5996404b399"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PasswordDialog.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="421b2218c5743ae547cc4395f7edc71b"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="NoCloseInputStream.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="ad5ab6574541554f63ba30b04b6dbe56"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CSVPrinter.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="c70a3bf2ec2ef58f479a0bba2001746a"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="RandPass.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="bf383db4c64fc989ad0a566179eb7826"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PasswordDialog_da.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="04c228a4b4d040cbdf50e4d0010d5242"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Browser_da.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="14c95af3fe6f8405ee13a34bb2d032cb"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="RandPass.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="4ed2f02e14debd5c64b27b238b4a37db"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="BrowserCommandLexer.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="0568a477781988aaff90eff1b284d270"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="BadQuoteException.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="b2769fde4fdd3e5725f86cf8cc368ba3"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="StraightStreamReader.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="5956d7eab860fbb71e0eca8dd6a3c4a0"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="MD5.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="99586156585b4ad42378715353cd22e3"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CGILexer.lex"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="0b77cddae4ead0cb7486eefc182aa9d5"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CSVParse.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="fb33e4da2337024ae6f7a168ecbdd6a0"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="Tabs.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="7c9447319392c01389cef87b4df668bb"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CSVLexer.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="e9713bab0d04b1246f910b19349d6374"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularCharBuffer.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="d8bf71d6e39b33738a7f2a8c5cadf07d"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="MD5OutputStream.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="bdb503df7bc32515bc1be88068e753c2"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="ExcelCSVLexer.lex"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="7c7a30c3d3ed17a6c5f3d77c26b7e160"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CSVPrinter.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="868ffd275785ee6a507175cb652accfc"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CSV.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="51b79b96a55eaa354e0b2ad58ce55d0e"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CSVParse.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="03b067caa2b1219b628c78db6de34437"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:12.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CGILexer.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="0b0a34432feb8e4fd25950be3e98738a"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CircularBuffer.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="b201dde73f94a4b10638e2c034e552dc"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CSVPrint.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="6cbb6dce5149effe56876961d84eba99"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="cleansource.sh"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="1a808df482dd2d8338b40f5ec5f28f9f"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="UberProperties.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="d195810f6b832ea512a286b7296bbebd"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="install.sh"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="ee5dd27fe7d3b5188acead6ce0ab8d86"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularBufferTests$COBProducer.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="ae982373db0cbae0cb0805d5e21495bb"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="neaten.sh"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="debae51fff424b235e1f154b6b241b44"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="BadDelimiterException.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="aa3965e79d2954c20f6c0c4e7654fb57"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="MD5InputStream.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="8187a84b488df7f13dde37c55ff58c2d"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="RandPassApplet.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="7ef83c3cf5a4c33f0ce8408b75d65a08"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="PasswordDialog.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="d43e2f3fad9926e3e701dfd218b102b9"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="Browser.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="66280f14bd28a78aa7dec4bd141ce9fe"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularObjectBuffer.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="1f122541ee8f8d2eedd25390ea3d088b"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="BufferOverflowException.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="71b50e435c307bb58bb467ec9cefb14c"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Browser.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="54dd752f9b037f444cde957d74c72ec8"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="LineEnds.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="c971eeec1bc57e8166a6706442a1ad44"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="PropertiesLexer.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="75286025ac60756e6532a5de0b810389"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="BinaryDataException.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="dd47c66aae4936ea756f8d82b6408eeb"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="MD5$MD5State.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="62f9e09348b8de8fb0414a366dd77b8d"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="MD5.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="24d24ec852ad512c759c6429112f8e88"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="StringTokenizer.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="739dedd18f63b95014fe8d8fe8b27560"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PasswordDialog_nl.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="0bc29e74596db40e6e4e96ff6a01a825"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="item.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="38a4526956fb8e386a6a00f2146a7281"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PasswordDialog_pl.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="66cafb8ac1f310482757d4e395959a5c"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Browser_pl.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="e879071a9502324a8d5618002a3592fa"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="ExcelCSVParser.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="8946f775325f10e6eb9c6cdb16de42a6"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="RandPassApplet$1.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="b0640b2348d56060daab14bae4bbd50d"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CSVTest.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="f249cd12a513862025353067a4f9a797"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="PasswordDialog$2.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="9fa163eef0f091772718e70e3aa1a253"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="Browser$3.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="cbd52a3587a4f7d73f8201b5f63469ef"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularCharBuffer$CircularCharBufferWriter.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="be47ea81421d3f991690533bbd6a0af7"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Tabs.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="7c62b8ee625f63d3c367c6f5850085f1"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="page.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="f70c4156fbaafaa7d8c3a640f5743949"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="SignificantFigures.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="f3232c493595faab6fc8230bf017bba0"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="SignificantFigures.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="d64bd15674857647e3bdcf9522e9dc52"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Base64.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="8a24eac8e08b2d25653622400c8c744d"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="src.bte"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="2480bc4e33e30f908ff3fc83d6054755"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CircularBufferTests.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="66a022295354d1ad5f7b775886dd72f2"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="TokenizerTests.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="eec542b28072e64b42d9eeff00ce9c01"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PasswordDialog_es.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="55c8e7476574ad6e16231bd365a47815"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="StraightStreamReader.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="efb4efd4351ffc02070b64cc4c1b2160"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CircularObjectBuffer.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="46bb81deae7dc8fc7b6690e48dd546b2"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="Browser_es.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="05e9f7231f5a120702b7d211b26cc63f"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="PasswordDialog_en_US.properties"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="ba72019cdd9111448d09272a631d2ede"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="ExcelCSVRegressionTest.csv"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="7ddfed1d745a22a2f27d2c4d96eb0f5f"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="source.sh"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="863fd8914b1834719258062bc91ff228"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="CircularCharBuffer.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="dce0efb550c3394042def0cccc2b89d4"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="193"
+   name="CircularBufferTests$CCBConsumer.class"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-26T20:48:41.762188Z"
+   checksum="1031dd0dfeb69a73a9ba103ec094c71c"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+<entry
+   committed-rev="188"
+   name="BinaryDataException.java"
+   text-time="2005-02-01T18:54:14.000000Z"
+   committed-date="2004-08-16T01:57:35.697291Z"
+   checksum="449964ec99e2d2cf2454f56de6d10281"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:13.000000Z"/>
+</wc-entries>

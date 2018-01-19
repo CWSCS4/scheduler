@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="181"
+   name=""
+   committed-date="2004-07-27T01:17:35.900062Z"
+   url="svn+ssh://hiro/home/reillyeon/svnrepos/trunk/proging/scheduler/WEB-INF/classes/org/commschool/scheduler/db"
+   last-author="reillyeon"
+   kind="dir"
+   uuid="2a27f819-cfde-0310-8ade-be431724ba05"
+   revision="288"/>
+<entry
+   committed-rev="181"
+   name="TimeSlot.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="c35629cdf04dfb8588d5790296f64016"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="181"
+   name="CorruptDatabaseException.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="66cf7ca9680e838b16db8a4daa882c58"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="181"
+   name="FileSafetyConverter.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="07c192277376d8fbf2ac27c2978cc933"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="181"
+   name="TeacherDoesNotExistException.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="c9ce8876c450f9c422ef30a1d61bacbf"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="181"
+   name="Student.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="5e31192f8caf7f881871bbc098046a7d"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="181"
+   name="Conference.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="d250be957f6e99db95375bbe03cc429b"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="181"
+   name="StudentAlreadyExistsException.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="1b34b2a69eb28655a48a75b4f49ab7c5"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="181"
+   name="Iterator.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="c7e21ac0f0a51fcad5a6310cfbe215ae"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="181"
+   name="DbPopulator.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="581f47837ef96f1ff6f4c2128bc526a4"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="181"
+   name="Teacher.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="e2c3c7432a9dfecc0ed4839ae054f82d"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="181"
+   name="TeacherAlreadyExistsException.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="bc91eb81cd41047f7b63576bb7f7a333"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="181"
+   name="Storer_File.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="ff09a380b0ce2b1c3ece2641f4e6127f"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="181"
+   name="StudentDoesNotExistException.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="fa98ecc977638271edb6abe9d62614e4"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+<entry
+   committed-rev="181"
+   name="Storer.java"
+   text-time="2005-02-01T18:54:09.000000Z"
+   committed-date="2004-07-27T01:17:35.900062Z"
+   checksum="7100c9ce07171859b5cbbf9599ee3cee"
+   last-author="reillyeon"
+   kind="file"
+   prop-time="2005-02-01T18:54:09.000000Z"/>
+</wc-entries>
