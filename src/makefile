@@ -59,5 +59,3 @@ clean:
 
 distclean: clean
 	rm -f *.d
-
-include $(allSources:.cpp=.d)
