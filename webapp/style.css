@@ -1,7 +1,11 @@
 body {
-	background: #ccc;
+	background: #f8f8f8;
 	width: 700px;
 	margin: 1em auto;
+	font-family: 'Lato', sans-serif;
+	color: #757575;
+	font-weight: 100;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -11,7 +15,25 @@ h1, h2, h3, h4, h5, h6 {
 tr:hover td {
 	background: #fd9;
 }
-
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
 td {
-	border: 1px solid #999;
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+}
+th {
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+	color: black;
+	text-align: left;
+}
+
+a:visited {
+	color: blue;
+}
+
+a:active {
+	color: purple;
 }
