@@ -38,7 +38,7 @@ if (results.first()) {
     results = state.executeQuery("SELECT teachers.name, rank, max_conferences FROM preferences LEFT JOIN teachers ON preferences.withID = teachers.teacherID WHERE isTeacher = 0 AND ID = " + studentID + " ORDER BY preferences.rank");
     %>
     <table>
-    <tr><td>Importance</td><td>Teacher</td></tr>
+    <tr><th>Importance</th><th>Teacher</th></tr>
     <%
     while(results.next()) { %>
         <tr>

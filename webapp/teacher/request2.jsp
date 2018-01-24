@@ -13,7 +13,7 @@ Statement state = connect.createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE, Re
 td.priority { width: 5em; padding: 0.2em; text-align: center; }
 td.name { width: 20em; }
 td.classes { width: 20em; }
-td.multiple { width: 10em; }
+td.multiple { width: 12em; }
 </style>
 </head>
 <body>
@@ -26,7 +26,7 @@ td.multiple { width: 10em; }
 <p>Select how important it is that you meet with each student.</p>
 
 <table cols="2">
-<tr><th>Importance</th><th>Student</th><th>Classes</th><th>Number of Conferences<br />(for students in<br />multiple classes)</th></tr>
+<tr><th>Importance</th><th>Student</th><th>Classes</th><th>Schedule two conferences? (for students in multiple classes)</th></tr>
 <% 
 ResultSet results = state.executeQuery( "SELECT students.studentID, students.name, classes.name FROM classMembers LEFT JOIN classes ON classMembers.classID = classes.classID LEFT JOIN students ON classMembers.studentID = students.studentID WHERE classes.teacherID = " + teacherID + " ORDER BY students.studentID" );
 
@@ -68,12 +68,14 @@ for ( int i = 0; i < has.size(); i++ ) {
 	    i++;
 	} %></td><td class="multiple"><%
 	if ( doubled ) { %>
-<input type="radio" name="multiple<%= ((Integer)hasIDs.get(i)).intValue() %>" value="no"  <%= !multiple_selected ? "checked=\"checked\"" : "" %> />One
-<input type="radio" name="multiple<%= ((Integer)hasIDs.get(i)).intValue() %>" value="yes" <%=  multiple_selected ? "checked=\"checked\"" : "" %> />Two
+		
+<input type="checkbox" class="multipleBox" teacherId="<%= ((Integer)hasIDs.get(i)).intValue() %>" />
+<div hidden><input type="radio" name="multiple<%= ((Integer)hasIDs.get(i)).intValue() %>" value="no"  <%= !multiple_selected ? "checked=\"checked\"" : "" %> />One
+<input type="radio" name="multiple<%= ((Integer)hasIDs.get(i)).intValue() %>" value="yes" <%=  multiple_selected ? "checked=\"checked\"" : "" %> />Two</div>
 	<% } else {
 		%>
-<input type="radio" name="multiple<%= ((Integer)hasIDs.get(i)).intValue() %>" value="no"  disabled="disabled" checked="checked" />One
-<input type="radio" name="multiple<%= ((Integer)hasIDs.get(i)).intValue() %>" value="yes" disabled="disabled"                   />Two
+<div hidden><input type="radio" name="multiple<%= ((Integer)hasIDs.get(i)).intValue() %>" value="no"  disabled="disabled" checked="checked" />One
+<input type="radio" name="multiple<%= ((Integer)hasIDs.get(i)).intValue() %>" value="yes" disabled="disabled"                   />Two</div>
 	<% }
 	%></td></tr><%
 }
@@ -83,6 +85,12 @@ for ( int i = 0; i < has.size(); i++ ) {
 <p><input type="submit" value="Continue"/></p>
 <input type="hidden" name="submitted2" value="yes"/>
 </form>
+
+<script>
+	$("input.multipleBox").change(function(){
+		$("[name='multiple" + this.getAttribute("teacherId") + "']").not(':checked').prop("checked", true);
+	});
+</script>
 
 
 <% } else { %>

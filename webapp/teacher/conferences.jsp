@@ -23,8 +23,8 @@ ResultSet results = state.executeQuery( "SELECT students.name, start FROM confer
 <tr><td>Student</td><td>Time</td></tr>
 <%
 while (results.next()) { 
-	DateFormat tdf = DateFormat.getTimeInstance();
-	DateFormat ddf = DateFormat.getDateInstance(); %>
+	DateFormat tdf = new SimpleDateFormat("h:mm a");
+        DateFormat ddf = DateFormat.getDateInstance(); %>
     <tr>
 		<td><%= results.getString(1) %></td>
 		<td><%= ddf.format(results.getTimestamp(2)) %>

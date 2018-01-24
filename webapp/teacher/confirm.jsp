@@ -21,8 +21,8 @@ slots:</p>
 ResultSet results = state.executeQuery("SELECT start, end FROM available WHERE type = 1 AND ID = " + teacherID);
 
 while(results.next()) { 
-    DateFormat tdf = DateFormat.getTimeInstance();
-    DateFormat ddf = DateFormat.getDateInstance();
+        DateFormat tdf = new SimpleDateFormat("h:mm a");
+        DateFormat ddf = DateFormat.getDateInstance();
     %><li><%= ddf.format(results.getTimestamp(1)) + " " + tdf.format(results.getTimestamp(1)) %> - <%= tdf.format(results.getTimestamp(2)) %></li>
 <% } %>
 </ul>
@@ -34,10 +34,29 @@ the priority listed: (9 is highest priority)</p>
 results = state.executeQuery("SELECT students.name, rank, max_conferences FROM preferences LEFT JOIN students ON preferences.withID = students.studentID WHERE isTeacher = 1 AND ID = " + teacherID + " ORDER BY preferences.rank");
 %>
 <table>
-<tr><th>Priority</th><th>Student</th></tr>
+<tr><th>Importance</th><th>Student</th></tr>
 <%
 while(results.next()) { %>
-    <tr><td><%= results.getInt(2) %><%= results.getInt(3) > 1 ? " (2 conferences)" : "" %></td><td><%= results.getString(1) %></td></tr>
+    <tr><td><% 
+                
+        switch(results.getInt(2)){
+           case 1:
+                %>Not Important<%
+                break;
+           case 3:
+                %>Somewhat Important<%
+                break;
+           case 5:
+                %>Important<%
+                break;
+           case 7:
+                %>Very Important<%
+                break;
+           case 9:
+                %>Urgent<%
+                break;  
+        }
+        %><%= results.getInt(3) > 1 ? " (2 conferences)" : "" %></td><td><%= results.getString(1) %></td></tr>
 <% } %>
 </table>
 <!-- [areyzin] disabled emails

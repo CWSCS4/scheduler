@@ -42,7 +42,7 @@ for (int i = 0; i < has.size(); i++) {
 	<div class="col">
 		<div class="box box-blue box-example-movie">
       <div class="box-header" style="display: flex;padding: 0;">
-          <p style="align-self: center; display: block;margin: auto;flex-grow: 1;border-right: solid 1px white;padding: .5em;"><%= (String)has.get(i) %> (<%= (String)classes.get(i) %><% 
+          <p style="align-self: center; display: block;margin: auto;width: 50%;border-right: solid 1px white;padding: .5em;"><%= (String)has.get(i) %> (<%= (String)classes.get(i) %><% 
             boolean doubled = false;
             //int i2 = i;
             while ((i + 1) < has.size() && has.get(i).equals(has.get(i + 1))) {
@@ -51,7 +51,7 @@ for (int i = 0; i < has.size(); i++) {
             i++;
             }
           %>)</p>
-          <p style="margin: 0;align-self: center;flex-grow: 1;">
+          <p style="margin: 0;align-self: center;width: 50%;">
             <input class="teacherMeetBox" id="meetBox<%= ((Integer)hasIDs.get(i)).intValue() %>" teacherId="<%= ((Integer)hasIDs.get(i)).intValue() %>" type="checkbox" style="display: inline;">
             <span style="margin-left: 10px;">meet with this teacher?</span></p></div>
     
@@ -213,6 +213,11 @@ $(function() {
     border: none;
   }
 }
+
+#teacherForm{
+  width: 800px;
+}
+
 
 </style>
 
