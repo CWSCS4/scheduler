@@ -14,6 +14,7 @@
 <li><a href="/admin/adminpasswd.jsp">Set admin password</a></li>
 <li><a href="/admin/add_conference.jsp">Add conference</a></li>
 <li><a href="/admin/su.jsp">Login as user</a></li>
+<li><a href="/admin/removal.jsp">Remove a student/conference/teacher</a></li>
 <li><a href="/admin/smtp.jsp">Adjust SMTP settings</a></li>
 <li><a href="/admin/template.jsp">Set mail templates</a></li>
 <li><a href="/admin/viewAllSchedules.jsp">View all student schedules (for printing)</a></li>
