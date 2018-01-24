@@ -21,9 +21,8 @@ ResultSet results = state.executeQuery("SELECT teachers.name, teachers.room, con
 <tr><th>Teacher</th><th>Time</th><th>Room</th></tr>
 <%
 while (results.next()) { 
-    DateFormat tdf = DateFormat.getTimeInstance();
-    DateFormat ddf = new SimpleDateFormat("MMMM, d @"); %>
-    <tr><td><%= results.getString(1) %></td><td><%= ddf.format(results.getTimestamp(3)) + " " + tdf.format(results.getTimestamp(3)) %></td><td><%= results.getString(2) %></td></tr>
+    DateFormat ddf = new SimpleDateFormat("MMMM, d @ h:mm a"); %>
+    <tr><td><%= results.getString(1) %></td><td><%= ddf.format(results.getTimestamp(3)) %></td><td><%= results.getString(2) %></td></tr>
 <% } %>
 </table>
 <h4>Refreshments will be available all day in the library.</h4>

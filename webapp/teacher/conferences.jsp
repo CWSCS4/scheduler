@@ -22,13 +22,11 @@ ResultSet results = state.executeQuery( "SELECT students.name, start FROM confer
 <table border="1">
 <tr><td>Student</td><td>Time</td></tr>
 <%
-while (results.next()) { 
-	DateFormat tdf = DateFormat.getTimeInstance();
-	DateFormat ddf = DateFormat.getDateInstance(); %>
+while (results.next()) {
+	DateFormat ddf = new SimpleDateFormat("MMMM, d @ h:mm a"); %>
     <tr>
 		<td><%= results.getString(1) %></td>
-		<td><%= ddf.format(results.getTimestamp(2)) %>
-		<%= tdf.format(results.getTimestamp(2)) %></td>
+		<td><%= ddf.format(results.getTimestamp(2)) %></td>
 	</tr>
 <% } %>
 </table>

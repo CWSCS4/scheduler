@@ -14,6 +14,7 @@
     <title>Conference Schedules</title>
 </head>
 <body>
+    <script>console.log("testing");</script>
 <% while (distinctStudentIDs.next()) {
     PreparedStatement classesSearch = connect.prepareStatement("SELECT classes.name FROM classes JOIN teachers ON teachers.teacherID = classes.teacherID JOIN classmembers ON classmembers.classID = classes.classID WHERE classmembers.studentID = ? AND teachers.teacherID = ?");
     classesSearch.setInt(1, distinctStudentIDs.getInt(1));
