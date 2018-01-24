@@ -21,16 +21,12 @@ td.multiple { width: 10em; }
 <% if ( request.getParameter( "submitted2" ) == null || !request.getParameter( "submitted2" ).equals( "yes" ) ) { %>
 
 <h2>Select Students (Step 2)</h2>
-
+ 
 <form action="request2.jsp" method="post">
-<p>Select the students that you absolutely have to meet with and the priority
-ranking of that meeting: (9 is the highest priority.) Otherwise just leave the
-box blank. You do not need to rank a student to have them be scheduled for a
-meeting. Your selections just provide an extra way for a meeting to be
-scheduled.</p>
+<p>Select how important it is that you meet with each student.</p>
 
 <table cols="2">
-<tr><th>Pri</th><th>Student</th><th>Classes</th><th>Number of Conferences<br />(for students in<br />multiple classes)</th></tr>
+<tr><th>Importance</th><th>Student</th><th>Classes</th><th>Number of Conferences<br />(for students in<br />multiple classes)</th></tr>
 <% 
 ResultSet results = state.executeQuery( "SELECT students.studentID, students.name, classes.name FROM classMembers LEFT JOIN classes ON classMembers.classID = classes.classID LEFT JOIN students ON classMembers.studentID = students.studentID WHERE classes.teacherID = " + teacherID + " ORDER BY students.studentID" );
 
@@ -45,8 +41,8 @@ while( results.next() ) {
 
 for ( int i = 0; i < has.size(); i++ ) { 
         results = state.executeQuery( "SELECT withID, rank, max_conferences FROM preferences WHERE isTeacher = 1 AND ID = " + teacherID );
-	%><tr><td class="priority"><select name="student<%= ((Integer)hasIDs.get(i)).intValue() %>" >
-		<option value="-1"></option>
+	%><tr><td class="priority"><select name="student<%= ((Integer)hasIDs.get(i)).intValue() %>">
+		<!-- <option value="-1" hidden style="display:none;">Click on the bar to choose</option> -->
 		<% int rank = -1;
                 boolean multiple_selected = false;
                 while ( results.next() ) {
@@ -55,11 +51,13 @@ for ( int i = 0; i < has.size(); i++ ) {
 			 if ( results.getInt( 3 ) > 1 )
 			     multiple_selected = true;
 		      }
-		}
-		for ( int j = 1; j < 10; j++ ) {
-			%><option value="<%= j %>" <%= j == rank ? "SELECTED" : "" %>><%= j %></option><%
 		}%>
-	</select></td><td class="name"><%= (String)has.get(i) %></td><td class="classes"><%= (String)classes.get(i) %><% 
+		<option value="1">Not Important</option>
+		<option value="3">Somewhat Important</option>
+		<option value="5" selected="selected">Important</option>
+		<option value="7">Very Important</option>
+		<option value="9">Urgent</option>
+	</select></td><td class="name"  style="padding: 25px"><%= (String)has.get(i) %></td><td class="classes"><%= (String)classes.get(i) %><% 
 	boolean doubled = false;
 	//int i2 = i;
 	while ( (i+1) < has.size() && has.get( i ).equals( has.get( i+1 ) ) ) {
@@ -85,7 +83,6 @@ for ( int i = 0; i < has.size(); i++ ) {
 <p><input type="submit" value="Continue"/></p>
 <input type="hidden" name="submitted2" value="yes"/>
 </form>
-
 
 
 <% } else { %>
