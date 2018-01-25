@@ -46,7 +46,7 @@ if (current.equals(currenth)) {
 } else {
 %>Admin password is incorrect. <a href="adminPasswd.jsp">Click here</a> to try again.<%
 }
-%><jsp:forward page="admin.jsp" /><%
+%><jsp:forward page="/admin.jsp" /><%
 } %>
 </body>
 </html>
