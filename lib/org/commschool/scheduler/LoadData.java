@@ -71,6 +71,7 @@ public class LoadData {
 	String tPass = null;
 	boolean initDatabase = false;
 	boolean eraseDatabase = false;
+	boolean shouldMerge = false;
 
 	Connection connect = null;
 
@@ -128,6 +129,8 @@ public class LoadData {
 			} else if (args[i].equals("-h") || args[i].equals("--help")) {
 				printHelp();
 				return;
+			} else if (args[i].equals("-m") || args[i].equals("--merge")){
+				shouldMerge = true;
 			}
 		}
 
@@ -190,7 +193,8 @@ public class LoadData {
 						+ "         -a advisors   --advisors   Load advisor list\n"
 						+ "         -b birthdays  --birthdays  Load password list (Usually birthdays)\n"
 						+ "         -r rooms      --rooms      Load lists of conference rooms\n"
-						+ "         -t password   --t-passwd   Set teacher password");
+						+ "         -t password   --t-passwd   Set teacher password\n"
+						+ "			-m			  --merge	   Prompt to merge siblings");
 	}
 
 	public void connectDatabase() {
@@ -513,6 +517,44 @@ public class LoadData {
 		}
 	}
 
+	public void findAndMergeSiblings(){
+		PreparedStatement statement = connect.prepareStatement("SELECT students.studentID, s2.studentID, students.name, s2.name " + 
+															   "FROM students JOIN students AS s2 ON SUBSTRING_INDEX(students.name, ',', 1) " + 
+															   "LIKE SUBSTRING_INDEX(s2.name, ',', 1) WHERE students.studentID < s2.studentID;");
+		ResultSet matches = statement.executeQuery();
+
+		while(matches.next()){
+
+			if(promptSiblings(matches.getString(3), matches.getString(4))){
+				mergeSiblings(matches.getInt(1), matches.getString(3), matches.getInt(2), matches.getString(4));
+			}
+		}
+
+	}
+
+	public Boolean promptSiblings(String name1, String name2){
+		System.out.printf("%s and %s detected as potential siblings. Merge into one? (Y/N): ", name1, name2);
+		String input = System.console().readLine();
+		if(input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes")){
+			return true;
+		} else if (input.equalsIgnoreCase("n") || input.equalsIgnoreCase("no")) {
+			return false;
+		} else {
+			return promptSiblings(name1, name2);
+		}
+	}
+
+	public void mergeSiblings(int id1, String name1, int id2, String name2){
+		System.out.printf("Merging %s and %s\n", name1, name2);
+		// Move the 2nd student's classes and student row to the first's
+		PreparedStatement moveClasses = connect.prepareStatement("UPDATE classMembers SET studentID = " + id1 + " WHERE studentID = " + id2 + ";");
+		PreparedStatement moveStudent = connect.prepareStatement("DELETE FROM students WHERE studentID = " + id2 + ";");
+		moveClasses.execute();
+		moveStudent.execute();
+		// Delete duplicate classes and students
+		// DO this on friday
+	}
+
 	public void setTeacherPassword() {
 		try {
 			PreparedStatement hashPassword = connect
@@ -558,5 +600,15 @@ public class LoadData {
 					+ name.substring(0, i);
 		}
 		return name;
+	}
+
+	public String firstNameOf(String name){
+		int i = name.indexOf(',')
+		name.substring(i + 1, name.length());
+	}
+
+	public String lastNameOf(String name){
+		int i = name.indexOf(',');
+		return name.substring(0, i);
 	}
 }
