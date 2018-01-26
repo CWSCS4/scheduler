@@ -156,7 +156,7 @@ example.setTime( results.getTimestamp( 1 ) );
 boolean errors = false;
 boolean blank = false;
 
-ResultSet results = state.executeQuery( "SELECT * FROM available WHERE type = 0 AND ID = " + teacherID );
+ResultSet results = state.executeQuery( "SELECT * FROM available WHERE type = 1 AND ID = " + teacherID );
 
 state.executeUpdate( "DELETE FROM available WHERE type = 1 AND ID = " + teacherID );
 
@@ -221,7 +221,7 @@ if ( request.getParameter( "timetype" ).equals( "all" ) ) {
         boolean validStart=false;
         boolean validStop=false;
         for(int i=0;i<times.size();i++){
-          if(!startDate.before(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getStart().getTime() ) )){
+          if(!startDate.before(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getStart().getTime() ) ) && startDate.before(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) )){
             if(endDate.after(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) )){
               errors=true;
             }
@@ -240,6 +240,7 @@ if ( request.getParameter( "timetype" ).equals( "all" ) ) {
       if (errors==false) {
         results.moveToInsertRow();
         results.updateInt( 1, teacherID );
+        results.updateInt( 2, 1 );
         results.updateTimestamp( 3,  startDate);
         results.updateTimestamp( 4,  endDate);
         results.insertRow();

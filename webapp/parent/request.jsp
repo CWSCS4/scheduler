@@ -223,7 +223,7 @@ if ( request.getParameter( "timetype" ).substring(0,3).equals( "all" ) ) {
       boolean validStart=false;
       boolean validStop=false;
       for(int i=0;i<times.size();i++){
-        if(!startDate.before(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getStart().getTime() ) )){
+        if(!startDate.before(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getStart().getTime() ) ) && startDate.before(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) )){
           if(endDate.after(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) )){
             errors=true;
           }
