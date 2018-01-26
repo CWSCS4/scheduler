@@ -124,32 +124,28 @@ example.setTime( results.getTimestamp( 1 ) );
       } else {
         if (str1>str2){
           return false;
-        } else {
-          return true;
         }
+        return true;
       }
     }
-    var orderRanges=[];
-    for(var j=0;j<ranges.length;j++){
-      var min=ranges[0];
-      for(var i=0;i<ranges.length;j++){
-        if (compareDateStrings(ranges[i][0],min[0])){
-          min=ranges[i];
-        }
-      orderRanges.push(min);
-      ranges.pop(min);
+    function compareDateRanges(arr1,arr2){
+      if(compareDateStrings(arr1[0],arr2[0])){
+        return false;
       }
+      return true;
+
     }
+    var orderRanges=ranges.sort(compareDateRanges);
     String.prototype.replaceAt=function(index, replacement) {
       return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
     }
-    var invertedRanges=[];
-    invertedRanges[0]=["12:00 AM",orderRanges[0][0]]
+    var invertedRanges=[["12:00 AM",orderRanges[0][0]]];
+    //invertedRanges.push(["12:00 AM",orderRanges[0][0]])
+    
     for(var j=0;j<orderRanges.length-1;j++){
       invertedRanges.push([orderRanges[j][1].replaceAt(orderRanges[j][1].length-4,"1"),orderRanges[j+1][0]]);
     }
     invertedRanges.push([orderRanges[orderRanges.length-1][1].replaceAt(orderRanges[j][1].length-4,"1"),"11:59 PM"]);
-
 </script>
 
 <%
@@ -199,7 +195,7 @@ if ( request.getParameter( "timetype" ).substring(0,3).equals( "all" ) ) {
   }
   blank=true;
 } else if ( request.getParameter( "timetype" ).equals( "custom" ) ) {
-  if(!(request.getParameter("start1").length()==7 && request.getParameter("end1").length()==7)){
+  if(!(request.getParameter("start1").length()==5 && request.getParameter("end1").length()==5)){
     errors=true;
   }
   if (errors==false) {
@@ -215,32 +211,35 @@ if ( request.getParameter( "timetype" ).substring(0,3).equals( "all" ) ) {
     String dy=String.valueOf(cal.get(Calendar.DAY_OF_MONTH));
     String min=(request.getParameter("start1")).substring(3,5);
     String tomin=(request.getParameter("end1")).substring(3,5);
-    String pm=(request.getParameter("start1")).substring(5,7);
-    String topm=(request.getParameter("end1")).substring(5,7);
-    String hour;
-    String tohour;
-    if(pm=="am"){
-      hour=(request.getParameter("start1")).substring(0,2);
-    } else {
-      hour=String.valueOf(Integer.parseInt((request.getParameter("start1")).substring(0,2))+12);
-    }
-    if(topm=="am"){
-      tohour=(request.getParameter("end1")).substring(0,2);
-    } else {
-      tohour=String.valueOf(Integer.parseInt((request.getParameter("end1")).substring(0,2))+12);
-    }
-    if(!(Integer.parseInt(min)>=0 && Integer.parseInt(min)<=60 && Integer.parseInt(tomin)>=0 && Integer.parseInt(tomin)<=60 )){
-      errors=true;
-    }
-    if(!(Integer.parseInt(hour)>=0 && Integer.parseInt(hour)<=24 && Integer.parseInt(tohour)>=0 && Integer.parseInt(tohour)<=24 )){
-      errors=true;
-    }
+    String hour=(request.getParameter("start1")).substring(0,2);
+    String tohour=(request.getParameter("end1")).substring(0,2);
+  
     //check again
     if (errors==false) {
       java.util.Date parsedStartTime=formatTime.parse((year+"-"+month+"-"+dy) + " " + hour+":"+min+":"+"00");
       java.util.Date parsedEndTime=formatTime.parse((year+"-"+month+"-"+dy) + " " + tohour+":"+tomin+":"+"00");
       Timestamp startDate = new Timestamp(parsedStartTime.getTime());
       Timestamp endDate= new Timestamp(parsedEndTime.getTime());
+      boolean validStart=false;
+      boolean validStop=false;
+      for(int i=0;i<times.size();i++){
+        if(!startDate.before(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getStart().getTime() ) )){
+          if(endDate.after(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) )){
+            errors=true;
+          }
+        }
+        if((!startDate.before(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getStart().getTime() ) )) && (!startDate.after(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) ))){
+          validStart=true;
+        } 
+        if((!endDate.before(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getStart().getTime() ) )) && (!endDate.after(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) ))){
+          validStop=true;
+        } 
+      }
+      if(validStart==false || validStop==false){
+        errors=true;
+      }
+      // and again
+    if (errors==false) {
       results.moveToInsertRow();
       results.updateInt( 1, studentID );
       results.updateTimestamp( 3,  startDate);
@@ -252,7 +251,9 @@ if ( request.getParameter( "timetype" ).substring(0,3).equals( "all" ) ) {
         results.updateRow();
       }
     }
+  }
 }
+
 
 
 } else {
@@ -298,8 +299,8 @@ function hideCustom(){
 
     $('.datepairExample .time').timepicker({
         'showDuration': true,
-        'timeFormat': 'h:ia',
-        'disableTimeRanges': invertedRanges
+        'timeFormat': 'H:i',
+        'disableTimeRanges': invertedRanges.slice(0)
     });
 
     // initialize datepair
