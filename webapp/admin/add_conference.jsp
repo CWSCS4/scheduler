@@ -1,15 +1,17 @@
 <%@ include file="/include/init.jsp" %>
 
 <%
-Statement state = null;
 int numberOfTimeSlots = 0;
-state = connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+Statement state = connect.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
 %>
 
 <%@ include file="/include/doctype.jsp" %>
 <html>
 <head>
 <title>Add Conference</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/timepicker@1.11.12/jquery.timepicker.min.css">
+
 <%@ include file="/include/meta.jsp" %>
 </head>
 <body>
@@ -63,35 +65,142 @@ cal.setTime( period.getTimestamp( 1 ) );
   %><option value="<%= i %>" <%= ( cal.get( Calendar.DAY_OF_MONTH ) == i ) ? "SELECTED" : "" %>><%= i %></option><%
 }%>
 </select>
-, <select name="year">
+<select name="year">
 <option value="-1"></option>
 <option value="<%= current.get( Calendar.YEAR )-1 %>" <%= ( cal.get( Calendar.YEAR ) == current.get( Calendar.YEAR )-1 ) ? "SELECTED" : "" %>><%= current.get( Calendar.YEAR )-1 %></option>
 <option value="<%= current.get( Calendar.YEAR ) %>" <%= ( cal.get( Calendar.YEAR ) == current.get( Calendar.YEAR ) ) ? "SELECTED" : "" %>><%= current.get( Calendar.YEAR ) %></option>
 <option value="<%= current.get( Calendar.YEAR )+1 %>" <%= ( cal.get( Calendar.YEAR ) == current.get( Calendar.YEAR )+1 ) ? "SELECTED" : "" %>><%= current.get( Calendar.YEAR )+1 %></option>
 </select>
- <select name="hour">
-<option value="-1"></option>
-<%for ( int i = 1; i < 13; i++ ) {
-  %><option value="<%= i %>" <%= ( cal.get( Calendar.HOUR ) == i % 12 ) ? "SELECTED" : "" %>><%= i %></option><%
-}%>
-</select>:<select name="minute">
-<option value="-1"></option>
-<%for ( int i = 0; i < 60; i++ ) {
-  %><option value="<%= i %>" <%= ( cal.get( Calendar.MINUTE ) == i ) ? "SELECTED" : "" %>><%= ( i < 10 ) ? "0"+i : ""+i %></option><%
-}%>
-</select> <select name="pm">
-<option value="-1"></option>
-<option value="0" <%= ( cal.get( Calendar.AM_PM ) == Calendar.AM ) ? "SELECTED" : "" %>>am</option>
-<option value="1" <%= ( cal.get( Calendar.AM_PM ) == Calendar.PM ) ? "SELECTED" : "" %>>pm</option>
-</select> <p>
+<div class="datepair1" name="custom" style="display: block">
+  <input type="text" name="start" class="time start"/> to
+  <input type="text" name="end" class="time end" />
+</div>
+<%
+ResultSet results = state.executeQuery( "SELECT * FROM conferencePeriod" );
+DateFormat tdf = DateFormat.getTimeInstance();
+DateFormat ddf = DateFormat.getDateInstance();
+int dateNum=0;
+Calendar firstDate = null;
+Calendar lastDate = null;
+Calendar startTime = Calendar.getInstance();
+Calendar stopTime = Calendar.getInstance();
+String[] startTimes;
+String[] stopTimes;
+startTimes = new String[24];
+stopTimes = new String[24];
+while ( results.next() ) { 
+    startTime = Calendar.getInstance();
+    stopTime = Calendar.getInstance();
+    startTime.setTime(results.getTimestamp(1));
+    stopTime.setTime(results.getTimestamp(2));
+    if ((firstDate == null) || (firstDate.after(startTime))) firstDate = startTime;
+    if ((lastDate == null) || (lastDate.before(stopTime))) lastDate = stopTime;
+    String str="dates";
+    startTimes[dateNum]=tdf.format(startTime.getTime());
+    stopTimes[dateNum]=tdf.format(stopTime.getTime());
+    dateNum++;
+}
+%>
+<script>
+  var starts=[];
+  var stops=[];
+  var ranges=[];
+  <%
+  for(int i=0;i<dateNum;i++){
+  %>
+    starts.push("<%=startTimes[i]%>");
+    stops.push("<%=stopTimes[i]%>");
+  <%
+  }
+  %>
+  for(var i=0;i<starts.length;i++){
+    ranges.push([starts[i],stops[i]])
+  }
+  function compareDateStrings(str1,str2){
+    if(str1.substring(str1.length-2,str1.length)>str2.substring(str2.length-2,str2.length)){
+      return false;
+    } else if (str1.substring(str1.length-2,str1.length)<str2.substring(str2.length-2,str2.length)){
+      return true;
+    } else {
+      if (str1>str2){
+        return false;
+      } else {
+        return true;
+      }
+    }
+  }
+  var orderRanges=[];
+  for(var j=0;j<ranges.length;j++){
+    var min=ranges[0];
+    for(var i=0;i<ranges.length;j++){
+      if (compareDateStrings(ranges[i][0],min[0])){
+        min=ranges[i];
+      }
+    orderRanges.push(min);
+    ranges.pop(min);
+    }
+  }
+  String.prototype.replaceAt=function(index, replacement) {
+    return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
+  }
+  var invertedRanges=[];
+  invertedRanges[0]=["12:00 AM",orderRanges[0][0]]
+  for(var j=0;j<orderRanges.length-1;j++){
+    invertedRanges.push([orderRanges[j][1].replaceAt(orderRanges[j][1].length-4,"1"),orderRanges[j+1][0]]);
+  }
+  invertedRanges.push([orderRanges[orderRanges.length-1][1].replaceAt(orderRanges[j][1].length-4,"1"),"11:59 PM"]);
 
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://jonthornton.github.io/Datepair.js/dist/datepair.js"></script>
+<script src="http://jonthornton.github.io/Datepair.js/dist/jquery.datepair.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/timepicker@1.11.12/jquery.timepicker.min.js"></script>
+<script>
+    $('.datepair1 .time').timepicker({
+        'showDuration': true,
+        'timeFormat': 'h:ia',
+        'disableTimeRanges': invertedRanges
+    });
+
+    $('.datepair1').datepair();
+</script>
 <p><input type="submit" value="Continue"/></p>
 <input type="hidden" name="submitted" value="yes"/>
 </form>
 <% } else {
-state.executeUpdate("INSERT INTO conferences values ");
+ResultSet results = state.executeQuery( "SELECT * FROM conference" );
+SimpleDateFormat formatTime = new SimpleDateFormat("yyyy-MM-dd H:mm:ss");
+String year=(request.getParameter("year"));
+String month=(request.getParameter("month"));
+String dy=(request.getParameter("day"));
+String min=(request.getParameter("start")).substring(3,5);
+String tomin=(request.getParameter("end")).substring(3,5);
+String pm=(request.getParameter("start")).substring(5,7);
+String topm=(request.getParameter("end")).substring(5,7);
+String hour;
+String tohour;
+if(pm=="am"){
+  hour=(request.getParameter("start")).substring(0,2);
+} else {
+  hour=String.valueOf(Integer.parseInt((request.getParameter("start")).substring(0,2))+12);
 }
-%><jsp:forward page="admin.jsp" /><%
+if(topm=="am"){
+  tohour=(request.getParameter("end")).substring(0,2);
+} else {
+  tohour=String.valueOf(Integer.parseInt((request.getParameter("end")).substring(0,2))+12);
+}
+java.util.Date parsedStartTime=formatTime.parse((year+"-"+month+"-"+dy) + " " + hour+":"+min+":"+"00");
+java.util.Date parsedEndTime=formatTime.parse((year+"-"+month+"-"+dy) + " " + tohour+":"+tomin+":"+"00");
+Timestamp startDate = new Timestamp(parsedStartTime.getTime());
+Timestamp endDate= new Timestamp(parsedEndTime.getTime());
+PreparedStatement insertConference = connect.prepareStatement("INSERT INTO conference (studentID, teacherID, start,end) VALUES (?, ?, ?, ?)");
+insertConference.setTimestamp(3,startDate);
+insertConference.setTimestamp(4,endDate);
+insertConference.setInt(1,Integer.parseInt(request.getParameter("student_name")));
+insertConference.setInt(2,Integer.parseInt(request.getParameter("teacher_name")));
+insertConference.executeUpdate();
+%><jsp:forward page="index.jsp" /><%
 } %>
+
 </body>
 </html>

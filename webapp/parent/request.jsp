@@ -2,17 +2,18 @@
 
 <%
 Statement state = connect.createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE );
+Statement state2 = connect.createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE );
 
-int numberOfTimeSlots;
 %>
 
 <%@ include file="/include/doctype.jsp" %>
 <html>
 <head>
 <title>Request Conferences for <%= studentName %></title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/timepicker@1.11.12/jquery.timepicker.min.css">
 <%@ include file="/include/meta.jsp" %>
 </head>
-<body>
+<body onpageshow="update()">
 <%@ include file="/include/parent_header.jsp" %>
 <% if ( request.getParameter( "submitted" ) == null || !request.getParameter( "submitted" ).equals( "yes" ) ) { %>
 <h2>Set Available Meeting Times (Step 1)</h2>
@@ -29,6 +30,7 @@ DateFormat ddf = DateFormat.getDateInstance();
 Calendar firstDate = null;
 Calendar lastDate = null;
 while ( results.next() ) { 
+    
     Calendar startTime = Calendar.getInstance();
     Calendar stopTime = Calendar.getInstance();
     startTime.setTime(results.getTimestamp(1));
@@ -47,294 +49,212 @@ example.setTime( results.getTimestamp( 1 ) );
 <p>Please enter the times that you will be available for conferences.
 <!-- (Month, Date, Year, Begin Time - Stop Time) --></p>
 <!-- <small>NOTE: In order to make your time more effective <a href="available.jsp" target="_new">click here</a> to look at the availability information for each of the teachers you would like to see, and enter your time accordingly.</small> -->
-<p><input type="radio" name="timetype" value="all">I will be available for the entire conference period.<br />
-<input type="radio" name="timetype" value="none">I will not be attending any conferences.<br />
-<input type="radio" name="timetype" value="custom" checked="checked">I will select a custom set of times below:
-<%
+<div>
+            <%
+      results = state.executeQuery( "SELECT * FROM conferencePeriod" );
+      tdf = DateFormat.getTimeInstance();
+      ddf = DateFormat.getDateInstance();
+      int dateNum=0;
+      firstDate = null;
+      lastDate = null;
+      Calendar startTime = Calendar.getInstance();
+      Calendar stopTime = Calendar.getInstance();
 
-results = state.executeQuery( "SELECT * FROM available WHERE type = 0 AND ID = " + studentID );
-Calendar current = Calendar.getInstance();
+      String[] startTimes;
+      String[] stopTimes;
+      startTimes = new String[24];
+      stopTimes = new String[24];
+      while ( results.next() ) { 
+          startTime = Calendar.getInstance();
+          stopTime = Calendar.getInstance();
+          startTime.setTime(results.getTimestamp(1));
+          stopTime.setTime(results.getTimestamp(2));
+          if ((firstDate == null) || (firstDate.after(startTime))) firstDate = startTime;
+          if ((lastDate == null) || (lastDate.before(stopTime))) lastDate = stopTime;
+          String str="all";
+          startTimes[dateNum]=tdf.format(startTime.getTime());
+          stopTimes[dateNum]=tdf.format(stopTime.getTime());
+          dateNum++;
 
-Calendar cal = Calendar.getInstance();
-Calendar tocal = Calendar.getInstance();
+          %><input type="radio" value="<%=str.concat(String.valueOf(dateNum))%>" name="timetype">I will be available during <%= ddf.format(startTime.getTime()) + " " + tdf.format(startTime.getTime()) %> - <%= tdf.format(stopTime.getTime()) %><br />
+      <% } %>
+      
+      <%
+      results.first();
+      example = Calendar.getInstance();
+      example.setTime( results.getTimestamp( 1 ) );
+      %>
+<input type="radio" id="none" checked="checked" name="timetype" value="none" onClick="hideCustom()" >I will not be attending any conferences.<br />
+<input type="radio" id="custom" name="timetype" value="custom" onClick="showCustom()" >I will select a custom set of times below:
 
-int j = 0;
-for ( j = 0; results.next(); j++ ) {
-cal.setTime( results.getTimestamp( 3 ) );
-tocal.setTime( results.getTimestamp( 4 ) );
-int hour = cal.get( Calendar.HOUR );
-if ( hour == 0 )
-    hour = 12;
-int tohour = tocal.get( Calendar.HOUR );
-if ( tohour == 0 )
-    tohour = 12;
-%>
-<p>
-<select name="date<%= j %>">
-<option value="-1"></option>
-<% Calendar date = (Calendar)firstDate.clone();
-date.clear(Calendar.MILLISECOND);
-date.clear(Calendar.SECOND);
-date.clear(Calendar.MINUTE);
-date.clear(Calendar.HOUR);
-date.clear(Calendar.AM_PM);
-for (; date.before(lastDate); date.add(Calendar.DATE, 1)) { %>
-<option value="<%= date.getTime().getTime() %>" <%=(
-(cal.get(Calendar.MONTH) == date.get(Calendar.MONTH)) && (cal.get(Calendar.DAY_OF_MONTH) == date.get(Calendar.DAY_OF_MONTH))
-) ? " selected=\"selected\"" : "" %>><%= ddf.format(date.getTime()) %></option>
-<% } %>
-</select>
-<% /* %>
-<select name="month<%= j %>">
-<option value="-1"></option>
-<option value="1" <%= ( cal.get( Calendar.MONTH ) == Calendar.JANUARY ) ? "SELECTED" : "" %>>January</option>
-<option value="2" <%= ( cal.get( Calendar.MONTH ) == Calendar.FEBRUARY ) ? "SELECTED" : "" %>>February</option>
-<option value="3" <%= ( cal.get( Calendar.MONTH ) == Calendar.MARCH ) ? "SELECTED" : "" %>>March</option>
-<option value="4" <%= ( cal.get( Calendar.MONTH ) == Calendar.APRIL ) ? "SELECTED" : "" %>>April</option>
-<option value="5" <%= ( cal.get( Calendar.MONTH ) == Calendar.MAY ) ? "SELECTED" : "" %>>May</option>
-<option value="6" <%= ( cal.get( Calendar.MONTH ) == Calendar.JUNE ) ? "SELECTED" : "" %>>June</option>
-<option value="7" <%= ( cal.get( Calendar.MONTH ) == Calendar.JULY ) ? "SELECTED" : "" %>>July</option>
-<option value="8" <%= ( cal.get( Calendar.MONTH ) == Calendar.AUGUST ) ? "SELECTED" : "" %>>August</option>
-<option value="9" <%= ( cal.get( Calendar.MONTH ) == Calendar.SEPTEMBER ) ? "SELECTED" : "" %>>September</option>
-<option value="10" <%= ( cal.get( Calendar.MONTH ) == Calendar.OCTOBER ) ? "SELECTED" : "" %>>October</option>
-<option value="11" <%= ( cal.get( Calendar.MONTH ) == Calendar.NOVEMBER ) ? "SELECTED" : "" %>>November</option>
-<option value="12" <%= ( cal.get( Calendar.MONTH ) == Calendar.DECEMBER ) ? "SELECTED" : "" %>>December</option>
-</select>
-<select name="day<%= j %>">
-<option value="-1">
-<%for ( int i = 1; i <= 31; i++ ) {
-  %><option value="<%= i %>" <%= ( cal.get( Calendar.DAY_OF_MONTH ) == i ) ? "SELECTED" : "" %>><%= i %></option><%
-}%>
-</select>
-, <select name="year<%= j %>">
-<option value="-1"></option>
-<option value="<%= current.get( Calendar.YEAR )-1 %>" <%= ( cal.get( Calendar.YEAR ) == current.get( Calendar.YEAR )-1 ) ? "SELECTED" : "" %>><%= current.get( Calendar.YEAR )-1 %></option>
-<option value="<%= current.get( Calendar.YEAR ) %>" <%= ( cal.get( Calendar.YEAR ) == current.get( Calendar.YEAR ) ) ? "SELECTED" : "" %>><%= current.get( Calendar.YEAR ) %></option>
-<option value="<%= current.get( Calendar.YEAR )+1 %>" <%= ( cal.get( Calendar.YEAR ) == current.get( Calendar.YEAR )+1 ) ? "SELECTED" : "" %>><%= current.get( Calendar.YEAR )+1 %></option>
-</select>
-<% */ %>
- <select name="hour<%= j %>">
-<option value="-1"></option>
-<%for ( int i = 0; i < 12; i++ ) {
-  %><option value="<%= i %>" <%= ( hour == i % 12 ) ? "SELECTED" : "" %>><%= (i == 0) ? 12 : i %></option><%
-}%>
-</select>:<select name="minute<%= j %>">
-<option value="-1"></option>
-<%for ( int i = 0; i < 60; i += 10 ) {
-  %><option value="<%= i %>" <%= ( cal.get( Calendar.MINUTE ) == i ) ? "SELECTED" : "" %>><%= ( i < 10 ) ? "0"+i : ""+i %></option><%
-}%>
-</select> <select name="pm<%= j %>">
-<option value="-1"></option>
-<option value="0" <%= ( cal.get( Calendar.AM_PM ) == Calendar.AM ) ? "SELECTED" : "" %>>am</option>
-<option value="1" <%= ( cal.get( Calendar.AM_PM ) == Calendar.PM ) ? "SELECTED" : "" %>>pm</option>
-</select> - <select name="tohour<%= j %>">
-<option value="-1"></option>
-<%for ( int i = 1; i < 13; i++ ) {
-  %><option value="<%= i %>" <%= ( tohour == i % 12 ) ? "SELECTED" : "" %>><%= i %></option><%
-}%>
-</select>:<select name="tominute<%= j %>">
-<option value="-1"></option>
-<%for ( int i = 0; i < 60; i += 10 ) {
-  %><option value="<%= i %>" <%= ( tocal.get( Calendar.MINUTE ) == i ) ? "SELECTED" : "" %>><%= ( i < 10 ) ? "0"+i : ""+i %></option><%
-}%>
-</select> <select name="topm<%= j %>">
-<option value="-1">
-<option value="0" <%= ( tocal.get( Calendar.AM_PM ) == Calendar.AM ) ? "SELECTED" : "" %>>am</option>
-<option value="1" <%= ( tocal.get( Calendar.AM_PM ) == Calendar.PM ) ? "SELECTED" : "" %>>pm</option>
-</select>
-<%
-}
+</div>
 
-numberOfTimeSlots = j+3;
+<div id="Slots" style="display: none">
+<div id="slotWithButton" style="display:flex;flex-direction:row">
 
-for ( int k = j; k < j + 3; k++ ) {
-// display 3 blank timeslots.
-%><p>
-<select name="date<%= k %>">
-<option value="-1"></option>
-<% Calendar date = (Calendar)firstDate.clone();
-date.clear(Calendar.MILLISECOND);
-date.clear(Calendar.SECOND);
-date.clear(Calendar.MINUTE);
-date.clear(Calendar.HOUR);
-date.clear(Calendar.AM_PM);
-for (; date.before(lastDate); date.add(Calendar.DATE, 1)) { %>
-<option value="<%= date.getTime().getTime() %>"><%= ddf.format(date.getTime()) %></option>
-<% } %>
-</select>
-<% /* %>
-<select name="month<%= k %>">
-<option value="-1"></option>
-<option value="1" <%= ( example.get( Calendar.MONTH ) == Calendar.JANUARY ) ? "SELECTED" : "" %>>January</option>
-<option value="2" <%= ( example.get( Calendar.MONTH ) == Calendar.FEBRUARY ) ? "SELECTED" : "" %>>February</option>
-<option value="3" <%= ( example.get( Calendar.MONTH ) == Calendar.MARCH ) ? "SELECTED" : "" %>>March</option>
-<option value="4" <%= ( example.get( Calendar.MONTH ) == Calendar.APRIL ) ? "SELECTED" : "" %>>April</option>
-<option value="5" <%= ( example.get( Calendar.MONTH ) == Calendar.MAY ) ? "SELECTED" : "" %>>May</option>
-<option value="6" <%= ( example.get( Calendar.MONTH ) == Calendar.JUNE ) ? "SELECTED" : "" %>>June</option>
-<option value="7" <%= ( example.get( Calendar.MONTH ) == Calendar.JULY ) ? "SELECTED" : "" %>>July</option>
-<option value="8" <%= ( example.get( Calendar.MONTH ) == Calendar.AUGUST ) ? "SELECTED" : "" %>>August</option>
-<option value="9" <%= ( example.get( Calendar.MONTH ) == Calendar.SEPTEMBER ) ? "SELECTED" : "" %>>September</option>
-<option value="10" <%= ( example.get( Calendar.MONTH ) == Calendar.OCTOBER ) ? "SELECTED" : "" %>>October</option>
-<option value="11" <%= ( example.get( Calendar.MONTH ) == Calendar.NOVEMBER ) ? "SELECTED" : "" %>>November</option>
-<option value="12" <%= ( example.get( Calendar.MONTH ) == Calendar.DECEMBER ) ? "SELECTED" : "" %>>December</option>
-</select>
-<select name="day<%= k %>"><option value="-1"></option>
-<%for ( int i = 1; i <= 31; i++ ) {
-  %><option value="<%= i %>" <%= ( example.get( Calendar.DAY_OF_MONTH ) == i ) ? "SELECTED" : "" %>><%= i %><%
-}%>
- </select>
-, <select name="year<%= k %>">
-<option value="<%= example.get( Calendar.YEAR )-1 %>"><%= example.get( Calendar.YEAR )-1 %></option>
-<option value="<%= example.get( Calendar.YEAR ) %>" SELECTED><%= example.get( Calendar.YEAR ) %></option>
-<option value="<%= example.get( Calendar.YEAR )+1 %>"><%= example.get( Calendar.YEAR )+1 %></option>
-</select>
-<% */ %>
- <select name="hour<%= k %>">
-<option value="-1"></option>
-<%for ( int i = 0; i < 12; i++ ) {
-  %><option value="<%= i %>"><%= (i == 0) ? 12 : i %></option><%
-}%>
-</select>:<select name="minute<%= k %>">
-<option value="-1"></option>
-<%for ( int i = 0; i < 60; i += 10 ) { 
-  %><option value="<%= i %>"><%= ( i < 10 ) ? "0"+i : ""+i %></option><% }%>
-</select> <select name="pm<%= k %>">
-<option value="-1"></option>
-<option value="0">am</option>
-<option value="1">pm</option>
-</select> - <select name="tohour<%= k %>">
-<option value="-1"></option>
-<%for ( int i = 0; i < 12; i++ ) {
-  %><option value="<%= i %>"><%= (i == 0) ? 12 : i %></option><%
-}%>
-</select>:<select name="tominute<%= k %>">
-<option value="-1"></option>
-<%for ( int i = 0; i < 60; i += 10 ) {
-  %><option value="<%= i %>"><%= ( i < 10 ) ? "0"+i : ""+i %></option><% }%>
-</select> <select name="topm<%= k %>">
-<option value="-1"></option>
-<option value="0">am</option>
-<option value="1">pm</option>
-</select>
-<% } %>
-
-<p><input type="submit" value="Continue"/></p>
+<div class="datepairExample" name="custom1" style="display: block">
+<input type="text" name="start1" class="time start"/> to
+<input type="text" name="end1" class="time end" />
+</div> 
+</div>
+</div>
+<p><input type="submit" value="Continue" id="Continue"/></p>
 <input type="hidden" name="submitted" value="yes"/>
 </form>
+<script>
+    var starts=[];
+    var stops=[];
+    var ranges=[];
+    <%
+    for(int i=0;i<dateNum;i++){
+    %>
+      starts.push("<%=startTimes[i]%>");
+      stops.push("<%=stopTimes[i]%>");
+    <%
+    }
+    %>
+    for(var i=0;i<starts.length;i++){
+      ranges.push([starts[i],stops[i]])
+    }
+    function compareDateStrings(str1,str2){
+      if(str1.substring(str1.length-2,str1.length)>str2.substring(str2.length-2,str2.length)){
+        return false;
+      } else if (str1.substring(str1.length-2,str1.length)<str2.substring(str2.length-2,str2.length)){
+        return true;
+      } else {
+        if (str1>str2){
+          return false;
+        }
+        return true;
+      }
+    }
+    function compareDateRanges(arr1,arr2){
+      if(compareDateStrings(arr1[0],arr2[0])){
+        return false;
+      }
+      return true;
 
-<% } else {
+    }
+    var orderRanges=ranges.sort(compareDateRanges);
+    String.prototype.replaceAt=function(index, replacement) {
+      return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
+    }
+    var invertedRanges=[["12:00 AM",orderRanges[0][0]]];
+    //invertedRanges.push(["12:00 AM",orderRanges[0][0]])
+    
+    for(var j=0;j<orderRanges.length-1;j++){
+      invertedRanges.push([orderRanges[j][1].replaceAt(orderRanges[j][1].length-4,"1"),orderRanges[j+1][0]]);
+    }
+    invertedRanges.push([orderRanges[orderRanges.length-1][1].replaceAt(orderRanges[j][1].length-4,"1"),"11:59 PM"]);
+</script>
 
+<%
+
+
+} else {
 boolean errors = false;
 boolean blank = false;
 
 ResultSet results = state.executeQuery( "SELECT * FROM available WHERE type = 0 AND ID = " + studentID );
 
-numberOfTimeSlots = 3;
-while ( results.next() ) {
-    numberOfTimeSlots++;
-}
-
 state.executeUpdate( "DELETE FROM available WHERE type = 0 AND ID = " + studentID );
 
 results = state.executeQuery( "SELECT * FROM conferencePeriod" );
 Vector times = new Vector();
+
 while ( results.next() ) {
     times.add( new TimeSlot( results.getTimestamp( 1 ), results.getTimestamp( 2 ) ) );
 }
-
-if ( request.getParameter( "timetype" ).equals( "all" ) ) {
-    results = state.executeQuery( "SELECT * FROM available" );
-    results.moveToInsertRow();
-    for ( int i = 0; i < times.size(); i++ ) {
+if ( request.getParameter( "timetype" ).substring(0,3).equals( "all" ) ) {
+  results = state.executeQuery( "SELECT * FROM students WHERE studentID = " + studentID );
+  if(errors==false){
+    if (results.first()) {
+      results.updateInt(8, 1);
+      results.updateRow();
+    }  
+  }
+  for (int i=0;i<times.size();i++){
+    String str="all";
+    if ( request.getParameter( "timetype" ).equals( str + String.valueOf(i+1) ) ) {
+        results = state.executeQuery( "SELECT * FROM available" );
+        results.moveToInsertRow();
         results.updateInt( 1, studentID );
-	results.updateInt( 2, 0 );
-	results.updateTimestamp( 3, new java.sql.Timestamp( ((TimeSlot)times.get( i )).getStart().getTime() ) );
-	results.updateTimestamp( 4, new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) );
-	results.insertRow();
-    }
-} else if ( request.getParameter( "timetype" ).equals( "none" ) ) {
-	results = state.executeQuery( "SELECT * FROM students WHERE studentID = " + studentID );
+        results.updateInt( 2, 0 );
+        results.updateTimestamp( 3, new java.sql.Timestamp( ((TimeSlot)times.get( i )).getStart().getTime() ) );
+        results.updateTimestamp( 4, new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) );
+        results.insertRow();
+      }
+  }
+
+
+}else if ( request.getParameter( "timetype" ).equals( "none" ) ) {
+  results = state.executeQuery( "SELECT * FROM students WHERE studentID = " + studentID );
 	if (results.first()) {
-		results.updateInt(5, 2);
-		results.updateRow();
-	}
+		results.updateInt(8, 0);
+    results.updateRow();
+  }
+  blank=true;
 } else if ( request.getParameter( "timetype" ).equals( "custom" ) ) {
-
-results = state.executeQuery( "SELECT * FROM available WHERE type = 0 AND ID = " + studentID );
-
-for ( int i = 0; i < numberOfTimeSlots; i++ ) {
-    long date = -1;
-    int hour = -1;
-    int minute = -1;
-    int pm = -1;
-    int tohour = -1;
-    int tominute = -1;
-    int topm = -1;
-
-    try {
-	date = Long.parseLong(request.getParameter("date" + i));
-   	hour = Integer.parseInt( request.getParameter( "hour" + i ) );
-   	minute = Integer.parseInt( request.getParameter( "minute" + i ) );
-	pm = Integer.parseInt( request.getParameter( "pm" + i ) );
-   	tohour = Integer.parseInt( request.getParameter( "tohour" + i ) );
-   	tominute = Integer.parseInt( request.getParameter( "tominute" + i ) );
-	topm = Integer.parseInt( request.getParameter( "topm" + i ) );
-    } catch ( NumberFormatException e ) {
-		throw new Exception("Availability parameter is not a valid number.", e);
-	}
-
-    if ( !( date == -1 || hour == -1 || minute == -1 || pm == -1 || tohour == -1 || tominute == -1 || topm == -1 ) ) {
-      Calendar cal = Calendar.getInstance();
-      Calendar tocal = Calendar.getInstance();
-
-/*      if ( pm == 1 ) {
-         if ( hour != 12 )
-	    hour = ( hour + 12 ) % 24;
+  if(!(request.getParameter("start1").length()==5 && request.getParameter("end1").length()==5)){
+    errors=true;
+  }
+  if (errors==false) {
+    results= state.executeQuery( "SELECT * FROM available");
+    ResultSet results2=state2.executeQuery("SELECT * FROM conferenceperiod");
+    results2.first();
+    long timestamp = results2.getTimestamp(1).getTime();
+    Calendar cal = Calendar.getInstance();
+    cal.setTimeInMillis(timestamp);
+    SimpleDateFormat formatTime = new SimpleDateFormat("yyyy-MM-dd H:mm:ss");
+    String year=String.valueOf(cal.get(Calendar.YEAR));
+    String month=String.valueOf(Integer.parseInt(String.valueOf(cal.get(Calendar.MONTH)))+1); //necessary for some reason
+    String dy=String.valueOf(cal.get(Calendar.DAY_OF_MONTH));
+    String min=(request.getParameter("start1")).substring(3,5);
+    String tomin=(request.getParameter("end1")).substring(3,5);
+    String hour=(request.getParameter("start1")).substring(0,2);
+    String tohour=(request.getParameter("end1")).substring(0,2);
+  
+    //check again
+    if (errors==false) {
+      java.util.Date parsedStartTime=formatTime.parse((year+"-"+month+"-"+dy) + " " + hour+":"+min+":"+"00");
+      java.util.Date parsedEndTime=formatTime.parse((year+"-"+month+"-"+dy) + " " + tohour+":"+tomin+":"+"00");
+      Timestamp startDate = new Timestamp(parsedStartTime.getTime());
+      Timestamp endDate= new Timestamp(parsedEndTime.getTime());
+      boolean validStart=false;
+      boolean validStop=false;
+      for(int i=0;i<times.size();i++){
+        if(!startDate.before(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getStart().getTime() ) ) && startDate.before(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) )){
+          if(endDate.after(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) )){
+            errors=true;
+          }
+        }
+        if((!startDate.before(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getStart().getTime() ) )) && (!startDate.after(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) ))){
+          validStart=true;
+        } 
+        if((!endDate.before(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getStart().getTime() ) )) && (!endDate.after(new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) ))){
+          validStop=true;
+        } 
       }
-
-      if ( topm == 1 ) {
-         if ( tohour != 12 )
-            tohour = ( tohour + 12 ) % 24;
-      } 
-*/
-      if (hour == 12) pm = 1 - pm;
-	  if (tohour == 12) topm = 1 - topm;
-
-      cal.setTimeInMillis(date);
-      cal.set(Calendar.HOUR, hour);
-      cal.set(Calendar.MINUTE, minute);
-      cal.set(Calendar.AM_PM, pm);
-      tocal.setTimeInMillis(date);
-      tocal.set(Calendar.HOUR, tohour);
-      tocal.set(Calendar.MINUTE, tominute);
-      tocal.set(Calendar.AM_PM, topm);
-
-      TimeSlot time = new TimeSlot( cal.getTime(), tocal.getTime() );
-      if ( time.getStart().compareTo( time.getFinish() ) > 0 ) {
-      	 errors = true;
-      	 %><p><%= time.getStart() %> - <%= time.getFinish() %> ends before it begins.<%
-      } else {
-          boolean within = false;
-	  for ( int j = 0; j < times.size(); j++ ) {
-	      if ( time.within( (TimeSlot)times.get( j ) ) )
-		  within = true;
-      	  }
-	  if ( within ) {
-		results.moveToInsertRow();
-		results.updateInt( 1, studentID );
-		results.updateInt( 2, 0 );
-		results.updateTimestamp( 3, new java.sql.Timestamp( time.getStart().getTime() ) );
-		results.updateTimestamp( 4, new java.sql.Timestamp( time.getFinish().getTime() ) );
-		results.insertRow();
-	  } else {
-	    	errors = true;
-		%><p><%= time.getStart() %> - <%= time.getFinish() %> is not within the timeframe of the conference.<%
-      	  }
+      if(validStart==false || validStop==false){
+        errors=true;
       }
-    }    
+      // and again
+    if (errors==false) {
+      results.moveToInsertRow();
+      results.updateInt( 1, studentID );
+      results.updateTimestamp( 3,  startDate);
+      results.updateTimestamp( 4,  endDate);
+      results.insertRow();
+      results = state.executeQuery( "SELECT * FROM students WHERE studentID = " + studentID );
+      if (results.first()) {
+        results.updateInt(8, 1);
+        results.updateRow();
+      }
+    }
+  }
 }
 
-results.close();
+
 
 } else {
     blank = true;
@@ -345,18 +265,46 @@ if ( !errors && !blank && false ) {
    %><p>You did not specify any times that you are available.</p><%
 }
 
-if (!errors) {
-	state.execute("UPDATE students SET hasSetAvail = 1 WHERE studentID = " + studentID);
-}
    
 %>
 <% if ( errors ) { %>
-<p>Please use your brower's "Back" button to go back and correct the errors in your submission.</p>
+<p>There was an error with your submission. Please use your brower's "Back" button to go back and correct it.</p>
 <% } else if ( blank ) { %>
 <jsp:forward page="request3.jsp"/>
 <% } else { %>
 <jsp:forward page="request2.jsp"/>
 <% } %>
 <% } %>
+</div>
+<script type="text/javascript">
+function update(){
+  if (document.getElementById("none").checked){
+    hideCustom();
+  } else if(document.getElementById("custom").checked){
+    showCustom();
+  }
+}
+function showCustom(){
+  document.getElementById("Slots").style.display="block";
+}
+function hideCustom(){
+  document.getElementById("Slots").style.display="none";
+}
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://jonthornton.github.io/Datepair.js/dist/datepair.js"></script>
+<script src="http://jonthornton.github.io/Datepair.js/dist/jquery.datepair.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/timepicker@1.11.12/jquery.timepicker.min.js"></script>
+<script>
+
+    $('.datepairExample .time').timepicker({
+        'showDuration': true,
+        'timeFormat': 'H:i',
+        'disableTimeRanges': invertedRanges.slice(0)
+    });
+
+    // initialize datepair
+    $('.datepairExample').datepair();
+</script>
 </body>
 </html>

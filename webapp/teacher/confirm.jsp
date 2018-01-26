@@ -14,11 +14,19 @@ Statement state = connect.createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE, Re
 <%@ include file="/include/teacher_header.jsp" %>
 <h2>Confirmation</h2>
 <p>Please confirm that the following information is correct. </p>
+<%
+ResultSet results = state.executeQuery( "SELECT * FROM teachers WHERE teacherID = " + teacherID );
+if (results.first()) {
+    if (results.getInt(7)==0){
+    %>
+        <p>You have indicated that you will not be availible for conferences.</p>
+
+    <% } else { %>
 <p>You have indicated that you will be available for the following time
 slots:</p>
 <ul>
 <%
-ResultSet results = state.executeQuery("SELECT start, end FROM available WHERE type = 1 AND ID = " + teacherID);
+results = state.executeQuery("SELECT start, end FROM available WHERE type = 1 AND ID = " + teacherID);
 
 while(results.next()) { 
         DateFormat tdf = new SimpleDateFormat("h:mm a");
@@ -59,6 +67,8 @@ while(results.next()) { %>
         %><%= results.getInt(3) > 1 ? " (2 conferences)" : "" %></td><td><%= results.getString(1) %></td></tr>
 <% } %>
 </table>
+<%}%>
+<%}%>
 <!-- [areyzin] disabled emails
 <p>You have indicated that you wish your final schedule to be emailed to
 "<%= teacherEmail %>".</p>
