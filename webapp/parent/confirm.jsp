@@ -28,22 +28,40 @@ if (results.first()) {
     <ul><%
     results = state.executeQuery("SELECT start, end FROM available WHERE type = 0 AND ID = " + studentID);
     while(results.next()) { 
-        DateFormat tdf = DateFormat.getTimeInstance();
+        DateFormat tdf = new SimpleDateFormat("h:mm a");
         DateFormat ddf = DateFormat.getDateInstance();
-        %><li><%= ddf.format(results.getTimestamp(1)) + " " + tdf.format(results.getTimestamp(1)) %> - <%= tdf.format(results.getTimestamp(2)) %></li>
+        %><li><%= ddf.format(results.getTimestamp(1)) + ": " + tdf.format(results.getTimestamp(1)) %> - <%= tdf.format(results.getTimestamp(2)) %></li>
     <% } %></ul>
 
-    <p>You have selected that you would like to meet with the following teachers in
-    the priority listed: (9 is highest priority)</p>
+    <p>You have selected that you would like to meet with the following teachers:</p>
     <%
     results = state.executeQuery("SELECT teachers.name, rank, max_conferences FROM preferences LEFT JOIN teachers ON preferences.withID = teachers.teacherID WHERE isTeacher = 0 AND ID = " + studentID + " ORDER BY preferences.rank");
     %>
     <table>
-    <tr><td>Priority</td><td>Teacher</td></tr>
+    <tr><th>Importance</th><th>Teacher</th></tr>
     <%
     while(results.next()) { %>
         <tr>
-            <td><%= results.getInt(2) %><%= (results.getInt(3) > 1) ? " (2 conferences)" : "" %></td>
+            <td><% 
+                
+                switch(results.getInt(2)){
+                   case 1:
+                        %>Not Important<%
+                        break;
+                   case 3:
+                        %>Somewhat Important<%
+                        break;
+                   case 5:
+                        %>Important<%
+                        break;
+                   case 7:
+                        %>Very Important<%
+                        break;
+                   case 9:
+                        %>Urgent<%
+                        break;  
+                }
+                %><%= (results.getInt(3) > 1) ? " (2 conferences)" : "" %></td>
             <td><%= results.getString(1) %></td>
         </tr>
     <% } %>

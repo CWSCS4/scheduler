@@ -24,20 +24,10 @@ ResultSet results = state.executeQuery( "SELECT * FROM conferencePeriod" );
 <p>Conferences will take place at the following times; be sure you specify that
 you are available within at least one of these time periods:</p>
 <ul><%
-DateFormat tdf = DateFormat.getTimeInstance();
-DateFormat ddf = DateFormat.getDateInstance();
-
-Calendar firstDate = null;
-Calendar lastDate = null;
-while ( results.next() ) { 
-    
-    Calendar startTime = Calendar.getInstance();
-    Calendar stopTime = Calendar.getInstance();
-    startTime.setTime(results.getTimestamp(1));
-    stopTime.setTime(results.getTimestamp(2));
-    if ((firstDate == null) || (firstDate.after(startTime))) firstDate = startTime;
-    if ((lastDate == null) || (lastDate.before(stopTime))) lastDate = stopTime;
-    %><li><%= ddf.format(startTime.getTime()) + " " + tdf.format(startTime.getTime()) %> - <%= tdf.format(stopTime.getTime()) %></li>
+while (results.next()) { 
+    DateFormat tdf = new SimpleDateFormat("h:mm a");
+    DateFormat ddf = new SimpleDateFormat("MMMM d 'at' h:mm a");
+    %><li><%= ddf.format(results.getTimestamp(1)) %> - <%= tdf.format(results.getTimestamp(2)) %></li>
 <% } %></ul>
 
 <%
@@ -52,11 +42,9 @@ example.setTime( results.getTimestamp( 1 ) );
 <div>
             <%
       results = state.executeQuery( "SELECT * FROM conferencePeriod" );
-      tdf = DateFormat.getTimeInstance();
-      ddf = DateFormat.getDateInstance();
+      DateFormat tdf = DateFormat.getTimeInstance();
+      DateFormat ddf = DateFormat.getDateInstance();
       int dateNum=0;
-      firstDate = null;
-      lastDate = null;
       Calendar startTime = Calendar.getInstance();
       Calendar stopTime = Calendar.getInstance();
 
@@ -69,13 +57,9 @@ example.setTime( results.getTimestamp( 1 ) );
           stopTime = Calendar.getInstance();
           startTime.setTime(results.getTimestamp(1));
           stopTime.setTime(results.getTimestamp(2));
-          if ((firstDate == null) || (firstDate.after(startTime))) firstDate = startTime;
-          if ((lastDate == null) || (lastDate.before(stopTime))) lastDate = stopTime;
-          String str="all";
           startTimes[dateNum]=tdf.format(startTime.getTime());
           stopTimes[dateNum]=tdf.format(stopTime.getTime());
           dateNum++;
-
           %>
       <% } %>
       

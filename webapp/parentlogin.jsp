@@ -12,9 +12,9 @@ Statement state = connect.createStatement();
 </head>
 <body>
 <%@ include file="/include/parent_header.jsp" %>
-<h2>Log in to the scheduler</h2>
+<h2>Log in (Parents)</h2>
 <form action="parentauth.jsp" method="post">
-<p>Name: <select name="user">
+<p>Student Name: <select name="user">
 <%
 ResultSet results = state.executeQuery("SELECT name, studentID FROM students ORDER BY name");
 while (results.next()) { %>

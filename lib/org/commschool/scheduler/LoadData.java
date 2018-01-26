@@ -71,6 +71,7 @@ public class LoadData {
 	String tPass = null;
 	boolean initDatabase = false;
 	boolean eraseDatabase = false;
+	boolean shouldMerge = false;
 
 	Connection connect = null;
 
@@ -128,6 +129,8 @@ public class LoadData {
 			} else if (args[i].equals("-h") || args[i].equals("--help")) {
 				printHelp();
 				return;
+			} else if (args[i].equals("-m") || args[i].equals("--merge")){
+				shouldMerge = true;
 			}
 		}
 
@@ -161,6 +164,10 @@ public class LoadData {
 			setTeacherPassword();
 		}
 
+		if(shouldMerge){
+			findAndMergeSiblings();
+		}
+
 		try {
 			connect.close();
 		} catch (SQLException e) {
@@ -190,7 +197,8 @@ public class LoadData {
 						+ "         -a advisors   --advisors   Load advisor list\n"
 						+ "         -b birthdays  --birthdays  Load password list (Usually birthdays)\n"
 						+ "         -r rooms      --rooms      Load lists of conference rooms\n"
-						+ "         -t password   --t-passwd   Set teacher password");
+						+ "         -t password   --t-passwd   Set teacher password\n"
+						+ "         -m            --merge      Prompt to merge siblings");
 	}
 
 	public void connectDatabase() {
@@ -513,6 +521,98 @@ public class LoadData {
 		}
 	}
 
+	public void findAndMergeSiblings(){
+
+		try {
+
+			PreparedStatement statement = connect.prepareStatement("SELECT students.studentID, s2.studentID, students.name, s2.name " + 
+																   "FROM students JOIN students AS s2 ON SUBSTRING_INDEX(students.name, ',', 1) " + 
+																   "LIKE SUBSTRING_INDEX(s2.name, ',', 1) WHERE students.studentID < s2.studentID;");
+			ResultSet matches = statement.executeQuery();
+
+			while(matches.next()){
+
+				if(promptSiblings(matches.getString(3), matches.getString(4))){
+					mergeSiblings(matches.getInt(1), matches.getString(3), matches.getInt(2), matches.getString(4));
+				}
+			}
+
+		} catch (SQLException e){
+			System.err.println("Error merging siblings! (1) " + e);
+			System.exit(-6);
+		}
+
+	}
+
+	public Boolean promptSiblings(String name1, String name2){
+		System.out.printf("%s and %s detected as potential siblings. Merge into one? (Y/N): ", name1, name2);
+		String input = System.console().readLine();
+		if(input.equalsIgnoreCase("y") || input.equalsIgnoreCase("yes")){
+			return true;
+		} else if (input.equalsIgnoreCase("n") || input.equalsIgnoreCase("no")) {
+			return false;
+		} else {
+			return promptSiblings(name1, name2);
+		}
+	}
+
+	public void mergeSiblings(int id1, String name1, int id2, String name2){
+		System.out.printf("Merging %s and %s\n", name1, name2);
+
+		try {
+			// Find classes they could potentially have in common
+			PreparedStatement commonClassesQuery = connect.prepareStatement("SELECT classmembers.classID, classmembers.studentID, classes.name, classes.teacherID FROM classmembers " + 
+																			"JOIN classes ON classes.classID = classmembers.classID " + 
+																			"WHERE (studentID = " + id1 + " OR studentID = " + id2 + ") GROUP BY classmembers.classID HAVING count(*) > 1; ");
+			ResultSet commonClasses = commonClassesQuery.executeQuery();
+
+			// Change one of the duplicates into a brand new class of ID newClassID with name "<class name> for <sibling>"
+			while(commonClasses.next()){
+				int classID = commonClasses.getInt(1);
+				int studentID = commonClasses.getInt(2);
+				int newClassID;
+
+				String whose = (commonClasses.getInt(2) == id1) ? name1 : name2;
+				String className = commonClasses.getString(3) + " for " + firstNameOf(whose);
+				PreparedStatement insertClassName = connect.prepareStatement("INSERT INTO classes (name, teacherID) VALUES ('" + className + "', " + commonClasses.getInt(4) + ");", Statement.RETURN_GENERATED_KEYS);
+				insertClassName.executeUpdate();
+
+				ResultSet generatedKeys = insertClassName.getGeneratedKeys();
+				generatedKeys.first();
+				newClassID = generatedKeys.getInt(1);
+
+				PreparedStatement newClassChange = connect.prepareStatement("UPDATE classmembers SET classID = " + newClassID + " WHERE classID = " + classID + " AND studentID = " + studentID + ";");
+				newClassChange.executeUpdate();
+
+			}
+
+
+			// Move the 2nd student's classes into the 1st one's
+			System.out.printf("Merging %s's classes into %s's\n", name2, name1);
+			PreparedStatement moveClasses = connect.prepareStatement("UPDATE classmembers SET studentID = " + id1 + " WHERE studentID = " + id2 + ";");
+			moveClasses.executeUpdate();
+
+			// Get rid of student2 in students
+			System.out.printf("Deleting %s from students\n", name2);
+			PreparedStatement moveStudent = connect.prepareStatement("DELETE FROM students WHERE studentID = " + id2 + ";");
+			moveStudent.executeUpdate();
+
+			// Delete duplicate classes and students
+			System.out.printf("Deleting %s from class members\n", name2);
+			PreparedStatement deleteDuplicateClassMembers = connect.prepareStatement("DELETE FROM classmembers WHERE studentID = " + id2 + ";");
+			deleteDuplicateClassMembers.executeUpdate();
+
+			String mergedName = lastNameOf(name1) + ", " + firstNameOf(name1) + " or " + firstNameOf(name2);
+			System.out.printf("Renaming to %s\n", mergedName);
+			PreparedStatement renameStudent = connect.prepareStatement("UPDATE students SET name = '" + mergedName + "' WHERE studentID = " + id1);
+			renameStudent.executeUpdate();
+
+		} catch (SQLException e){
+			System.err.println("Error merging siblings! (2) " + e);
+			System.exit(-6);
+		}
+	}
+
 	public void setTeacherPassword() {
 		try {
 			PreparedStatement hashPassword = connect
@@ -558,5 +658,15 @@ public class LoadData {
 					+ name.substring(0, i);
 		}
 		return name;
+	}
+
+	public String firstNameOf(String name){
+		int i = name.indexOf(',');
+		return name.substring(i + 2, name.length());
+	}
+
+	public String lastNameOf(String name){
+		int i = name.indexOf(',');
+		return name.substring(0, i);
 	}
 }

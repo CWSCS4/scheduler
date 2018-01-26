@@ -9,9 +9,9 @@
 <body>
 <%@ include file="/include/teacher_header.jsp" %>
 
-<h2>Login to the Scheduler</h2>
+<h2>Log in (Teachers)</h2>
 <form action="tauth.jsp" method="post">
-<p>Username: <select name="user">
+<p>Name: <select name="user">
 <%
 Statement state = connect.createStatement();
 ResultSet results = state.executeQuery( "SELECT name, teacherID FROM teachers ORDER BY name" );
