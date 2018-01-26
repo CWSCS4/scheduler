@@ -185,12 +185,13 @@ $(function() {
   color: #729bf8;
 }
 .box-blue .box-header {
-  background-color: #4278f5;
+  background-color: #337ab7;
   color: white;
 }
 .box-blue .box-body {
   /* background-color: white; */
   border: 2px solid #8bacf9;
+  background-color: #f8f8f8;
   border-top: 0;
 }
 @media print {
