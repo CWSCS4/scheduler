@@ -25,7 +25,7 @@ at least one of these time periods:</p>
 <ul><%
 while (results.next()) { 
     DateFormat tdf = new SimpleDateFormat("h:mm a");
-    DateFormat ddf = new SimpleDateFormat("MMMM, d @ h:mm a");
+    DateFormat ddf = new SimpleDateFormat("MMMM d 'at' h:mm a");
     %><li><%= ddf.format(results.getTimestamp(1)) %> - <%= tdf.format(results.getTimestamp(2)) %></li>
 <% } %></ul>
 

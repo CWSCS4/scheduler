@@ -19,11 +19,11 @@ Statement state = connect.createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE, Re
 
 ResultSet results = state.executeQuery( "SELECT students.name, start FROM conference LEFT JOIN students ON conference.studentID = students.studentID WHERE teacherID = " + teacherID + " ORDER BY start" );
 %>
-<table border="1">
-<tr><td>Student</td><td>Time</td></tr>
+<table>
+<tr><th>Student</th><th>Time</th></tr>
 <%
 while (results.next()) {
-	DateFormat ddf = new SimpleDateFormat("MMMM, d @ h:mm a"); %>
+	DateFormat ddf = new SimpleDateFormat("MMMM d 'at' h:mm a"); %>
     <tr>
 		<td><%= results.getString(1) %></td>
 		<td><%= ddf.format(results.getTimestamp(2)) %></td>

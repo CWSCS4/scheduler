@@ -23,7 +23,7 @@ ResultSet results = state.executeQuery( "SELECT start, end FROM available WHERE 
 
 while( results.next() ) { 
     DateFormat tdf = new SimpleDateFormat("h:mm a");
-    DateFormat ddf = new SimpleDateFormat("MMMM, d @ h:mm a");
+    DateFormat ddf = new SimpleDateFormat("MMMM d 'at' h:mm a");
     %><li><%= ddf.format( results.getTimestamp( 1 ) ) %> - <%= tdf.format( results.getTimestamp( 2 ) ) %></li>
 <% } %></ul>
 
