@@ -24,9 +24,9 @@ Please be sure you specify that you are available within
 at least one of these time periods:</p>
 <ul><%
 while (results.next()) { 
-    DateFormat tdf = DateFormat.getTimeInstance();
-    DateFormat ddf = DateFormat.getDateInstance();
-    %><li><%= ddf.format(results.getTimestamp(1)) + " " + tdf.format(results.getTimestamp(1)) %> - <%= tdf.format(results.getTimestamp(2)) %></li>
+    DateFormat tdf = new SimpleDateFormat("h:mm a");
+    DateFormat ddf = new SimpleDateFormat("MMMM d 'at' h:mm a");
+    %><li><%= ddf.format(results.getTimestamp(1)) %> - <%= tdf.format(results.getTimestamp(2)) %></li>
 <% } %></ul>
 
 <%
