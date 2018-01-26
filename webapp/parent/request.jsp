@@ -13,7 +13,7 @@ Statement state2 = connect.createStatement( ResultSet.TYPE_SCROLL_INSENSITIVE, R
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/timepicker@1.11.12/jquery.timepicker.min.css">
 <%@ include file="/include/meta.jsp" %>
 </head>
-<body>
+<body onpageshow="update()">
 <%@ include file="/include/parent_header.jsp" %>
 <% if ( request.getParameter( "submitted" ) == null || !request.getParameter( "submitted" ).equals( "yes" ) ) { %>
 <h2>Set Available Meeting Times (Step 1)</h2>
@@ -50,10 +50,7 @@ example.setTime( results.getTimestamp( 1 ) );
 <!-- (Month, Date, Year, Begin Time - Stop Time) --></p>
 <!-- <small>NOTE: In order to make your time more effective <a href="available.jsp" target="_new">click here</a> to look at the availability information for each of the teachers you would like to see, and enter your time accordingly.</small> -->
 <div>
-                
-
-<input type="radio" name="timetype" value="all" onClick="showTimes()">I will be availible for the entire period <br />
-    <ul id="times" style="display:none"><%
+            <%
       results = state.executeQuery( "SELECT * FROM conferencePeriod" );
       tdf = DateFormat.getTimeInstance();
       ddf = DateFormat.getDateInstance();
@@ -74,21 +71,21 @@ example.setTime( results.getTimestamp( 1 ) );
           stopTime.setTime(results.getTimestamp(2));
           if ((firstDate == null) || (firstDate.after(startTime))) firstDate = startTime;
           if ((lastDate == null) || (lastDate.before(stopTime))) lastDate = stopTime;
-          String str="dates";
+          String str="all";
           startTimes[dateNum]=tdf.format(startTime.getTime());
           stopTimes[dateNum]=tdf.format(stopTime.getTime());
           dateNum++;
 
-          %><li><input type="checkbox" name=<%=str.concat(String.valueOf(dateNum))%>><%= ddf.format(startTime.getTime()) + " " + tdf.format(startTime.getTime()) %> - <%= tdf.format(stopTime.getTime()) %></li>
-      <% } %></ul>
+          %><input type="radio" value="<%=str.concat(String.valueOf(dateNum))%>" name="timetype">I will be available during <%= ddf.format(startTime.getTime()) + " " + tdf.format(startTime.getTime()) %> - <%= tdf.format(stopTime.getTime()) %><br />
+      <% } %>
       
       <%
       results.first();
       example = Calendar.getInstance();
       example.setTime( results.getTimestamp( 1 ) );
       %>
-<input type="radio" name="timetype" value="none" onClick="hideCustom()">I will not be attending any conferences.<br />
-<input type="radio" name="timetype" value="custom" onClick="showCustom()">I will select a custom set of times below:
+<input type="radio" id="none" checked="checked" name="timetype" value="none" onClick="hideCustom()" >I will not be attending any conferences.<br />
+<input type="radio" id="custom" name="timetype" value="custom" onClick="showCustom()" >I will select a custom set of times below:
 
 </div>
 
@@ -172,39 +169,29 @@ Vector times = new Vector();
 while ( results.next() ) {
     times.add( new TimeSlot( results.getTimestamp( 1 ), results.getTimestamp( 2 ) ) );
 }
-
-if ( request.getParameter( "timetype" ).equals( "all" ) ) {
+if ( request.getParameter( "timetype" ).substring(0,3).equals( "all" ) ) {
   results = state.executeQuery( "SELECT * FROM students WHERE studentID = " + studentID );
-  if (results.first()) {
-    results.updateInt(8, 1);
-    results.updateRow();
-  }  
-    results = state.executeQuery( "SELECT * FROM available" );
-    results.moveToInsertRow();
-    for ( int i = 0; i < times.size(); i++ ) {
-        String str="dates";
-        String checkbox = request.getParameter(str.concat(String.valueOf(i+1)));
-        if (checkbox != null) {
-          results.updateInt( 1, studentID );
-          results.updateInt( 2, 0 );
-          results.updateTimestamp( 3, new java.sql.Timestamp( ((TimeSlot)times.get( i )).getStart().getTime() ) );
-          results.updateTimestamp( 4, new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) );
-          results.insertRow();
-        }
-    }
+  if(errors==false){
+    if (results.first()) {
+      results.updateInt(8, 1);
+      results.updateRow();
+    }  
+  }
+  for (int i=0;i<times.size();i++){
+    String str="all";
+    if ( request.getParameter( "timetype" ).equals( str + String.valueOf(i+1) ) ) {
+        results = state.executeQuery( "SELECT * FROM available" );
+        results.moveToInsertRow();
+        results.updateInt( 1, studentID );
+        results.updateInt( 2, 0 );
+        results.updateTimestamp( 3, new java.sql.Timestamp( ((TimeSlot)times.get( i )).getStart().getTime() ) );
+        results.updateTimestamp( 4, new java.sql.Timestamp( ((TimeSlot)times.get( i )).getFinish().getTime() ) );
+        results.insertRow();
+      }
+  }
 
-    boolean unchecked=true;
-    for(int i=1;i<times.size()+1;i++){
-      String str="dates";
-      String checkbox = request.getParameter(str.concat(String.valueOf(i)));
-      if (checkbox != null) {
-        unchecked=false;
-      } 
-    }
-    if(unchecked){
-      errors=true;
-    }
-} else if ( request.getParameter( "timetype" ).equals( "none" ) ) {
+
+}else if ( request.getParameter( "timetype" ).equals( "none" ) ) {
   results = state.executeQuery( "SELECT * FROM students WHERE studentID = " + studentID );
 	if (results.first()) {
 		results.updateInt(8, 0);
@@ -212,40 +199,44 @@ if ( request.getParameter( "timetype" ).equals( "all" ) ) {
   }
   blank=true;
 } else if ( request.getParameter( "timetype" ).equals( "custom" ) ) {
-  int slots=1;
-  %>
-  <%
-  while (request.getParameter("start"+String.valueOf(slots))!=null){
-    slots++;
-}
+  if(!(request.getParameter("start1").length()==7 && request.getParameter("end1").length()==7)){
+    errors=true;
+  }
   if (errors==false) {
-    for(int i=1; i<slots ;i++){
-      results= state.executeQuery( "SELECT * FROM available");
-      ResultSet results2=state2.executeQuery("SELECT * FROM conferenceperiod");
-      results2.first();
-      long timestamp = results2.getTimestamp(1).getTime();
-      Calendar cal = Calendar.getInstance();
-      cal.setTimeInMillis(timestamp);
-      SimpleDateFormat formatTime = new SimpleDateFormat("yyyy-MM-dd H:mm:ss");
-      String year=String.valueOf(cal.get(Calendar.YEAR));
-      String month=String.valueOf(Integer.parseInt(String.valueOf(cal.get(Calendar.MONTH)))+1); //necessary for some reason
-      String dy=String.valueOf(cal.get(Calendar.DAY_OF_MONTH));
-      String min=(request.getParameter("start"+ String.valueOf(i))).substring(3,5);
-      String tomin=(request.getParameter("end"+ String.valueOf(i))).substring(3,5);
-      String pm=(request.getParameter("start"+ String.valueOf(i))).substring(5,7);
-      String topm=(request.getParameter("end"+ String.valueOf(i))).substring(5,7);
-      String hour;
-      String tohour;
-      if(pm=="am"){
-        hour=(request.getParameter("start"+ String.valueOf(i))).substring(0,2);
-      } else {
-        hour=String.valueOf(Integer.parseInt((request.getParameter("start"+ String.valueOf(i))).substring(0,2))+12);
-      }
-      if(topm=="am"){
-        tohour=(request.getParameter("end"+ String.valueOf(i))).substring(0,2);
-      } else {
-        tohour=String.valueOf(Integer.parseInt((request.getParameter("end"+ String.valueOf(i))).substring(0,2))+12);
-      }
+    results= state.executeQuery( "SELECT * FROM available");
+    ResultSet results2=state2.executeQuery("SELECT * FROM conferenceperiod");
+    results2.first();
+    long timestamp = results2.getTimestamp(1).getTime();
+    Calendar cal = Calendar.getInstance();
+    cal.setTimeInMillis(timestamp);
+    SimpleDateFormat formatTime = new SimpleDateFormat("yyyy-MM-dd H:mm:ss");
+    String year=String.valueOf(cal.get(Calendar.YEAR));
+    String month=String.valueOf(Integer.parseInt(String.valueOf(cal.get(Calendar.MONTH)))+1); //necessary for some reason
+    String dy=String.valueOf(cal.get(Calendar.DAY_OF_MONTH));
+    String min=(request.getParameter("start1")).substring(3,5);
+    String tomin=(request.getParameter("end1")).substring(3,5);
+    String pm=(request.getParameter("start1")).substring(5,7);
+    String topm=(request.getParameter("end1")).substring(5,7);
+    String hour;
+    String tohour;
+    if(pm=="am"){
+      hour=(request.getParameter("start1")).substring(0,2);
+    } else {
+      hour=String.valueOf(Integer.parseInt((request.getParameter("start1")).substring(0,2))+12);
+    }
+    if(topm=="am"){
+      tohour=(request.getParameter("end1")).substring(0,2);
+    } else {
+      tohour=String.valueOf(Integer.parseInt((request.getParameter("end1")).substring(0,2))+12);
+    }
+    if(!(Integer.parseInt(min)>=0 && Integer.parseInt(min)<=60 && Integer.parseInt(tomin)>=0 && Integer.parseInt(tomin)<=60 )){
+      errors=true;
+    }
+    if(!(Integer.parseInt(hour)>=0 && Integer.parseInt(hour)<=24 && Integer.parseInt(tohour)>=0 && Integer.parseInt(tohour)<=24 )){
+      errors=true;
+    }
+    //check again
+    if (errors==false) {
       java.util.Date parsedStartTime=formatTime.parse((year+"-"+month+"-"+dy) + " " + hour+":"+min+":"+"00");
       java.util.Date parsedEndTime=formatTime.parse((year+"-"+month+"-"+dy) + " " + tohour+":"+tomin+":"+"00");
       Timestamp startDate = new Timestamp(parsedStartTime.getTime());
@@ -255,13 +246,14 @@ if ( request.getParameter( "timetype" ).equals( "all" ) ) {
       results.updateTimestamp( 3,  startDate);
       results.updateTimestamp( 4,  endDate);
       results.insertRow();
+      results = state.executeQuery( "SELECT * FROM students WHERE studentID = " + studentID );
+      if (results.first()) {
+        results.updateInt(8, 1);
+        results.updateRow();
+      }
     }
-  }
-  results = state.executeQuery( "SELECT * FROM students WHERE studentID = " + studentID );
-  if (results.first()) {
-    results.updateInt(8, 1);
-    results.updateRow();
-  }
+}
+
 
 } else {
     blank = true;
@@ -284,19 +276,18 @@ if ( !errors && !blank && false ) {
 <% } %>
 </div>
 <script type="text/javascript">
+function update(){
+  if (document.getElementById("none").checked){
+    hideCustom();
+  } else if(document.getElementById("custom").checked){
+    showCustom();
+  }
+}
 function showCustom(){
   document.getElementById("Slots").style.display="block";
-  document.getElementById("times").style.display="none";
-
 }
 function hideCustom(){
   document.getElementById("Slots").style.display="none";
-  document.getElementById("times").style.display="none";
-
-}
-function showTimes(){
-  document.getElementById("Slots").style.display="none";
-  document.getElementById("times").style.display="block";
 }
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

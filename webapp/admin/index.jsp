@@ -16,6 +16,8 @@
 <li><a href="/admin/su.jsp">Login as user</a></li>
 <li><a href="/admin/smtp.jsp">Adjust SMTP settings</a></li>
 <li><a href="/admin/template.jsp">Set mail templates</a></li>
+<li><a href="/admin/Duplicate_Student.jsp">Duplicate Student</a></li>
+
 <li>Send email:
 <a href="/admin/send_mail.jsp?type=schedule">Schedule</a>
 <a href="/admin/send_mail.jsp?type=reminder">Reminder</a>
