@@ -56,7 +56,7 @@ for (int i = 0; i < has.size(); i++) {
             <span style="margin-left: 10px;">meet with this teacher?</span></p></div>
     
 			<div class="box-body" id="boxBody<%= ((Integer)hasIDs.get(i)).intValue() %>" style="display:none; padding-top:0.5em; padding-bottom:3em;">
-				<div class="preferenceInstructionsBox" style="flex-direction: column;width:400px;align-items: center;display: flex;margin-left:1.25em;margin-right:0.75em;padding-left: 8px; padding-right: 8px;">
+				<div class="preferenceInstructionsBox" style="flex-direction: column; <% if (doubled) { %> width:400px; <% } else { %> flex-grow:2;  <% } %> align-items: center;display: flex;margin-left:1.25em;margin-right:0.75em;padding-left: 8px; padding-right: 8px;">
 					<p>How important is it that you meet with this teacher?</p>
 					<select class="preferenceBar" id="bar<%= ((Integer)hasIDs.get(i)).intValue() %>" name="teacher<%= ((Integer)hasIDs.get(i)).intValue() %>" autocomplete="off">
 							<option value="-1" hidden style="display:none;">Click on the bar to choose</option>
